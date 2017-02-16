@@ -33,7 +33,7 @@ playground.xcworkspace
 .build/
 
 Pods/
-
+Podfile.lock
 Carthage/Build
 
 ## fastlane

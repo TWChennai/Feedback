@@ -1,0 +1,21 @@
+PODS:
+  - Alamofire (4.3.0)
+  - Cuckoo (0.8.3)
+  - Nimble (6.0.1)
+  - Quick (1.1.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.3)
+  - Cuckoo
+  - Nimble
+  - Quick
+
+SPEC CHECKSUMS:
+  Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
+  Cuckoo: 2daf5d23383c0a24cd60b73287a5813af4793add
+  Nimble: 1527fd1bd2b4cf0636251a36bc8ab37e81da8347
+  Quick: dafc587e21eed9f4cab3249b9f9015b0b7a7f71d
+
+PODFILE CHECKSUM: ae4967661e733d271a30014776598bc5f145b3fc
+
+COCOAPODS: 1.2.0

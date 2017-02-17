@@ -21,6 +21,9 @@
 		16E84ABB1E55E0AE002B4245 /* FeedbackProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E84ABA1E55E0AE002B4245 /* FeedbackProtocols.swift */; };
 		16E84ABE1E56D53F002B4245 /* RootWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E84ABD1E56D53F002B4245 /* RootWireFrame.swift */; };
 		34B8583DC8DD89FF043BF124 /* Pods_FeedbackTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3587EB057F8677CEEE0700A /* Pods_FeedbackTests.framework */; };
+		7BF550AB1E571AD300E8AB63 /* FeedbackViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF550AA1E571AD300E8AB63 /* FeedbackViewTests.swift */; };
+		7BF550AE1E57288300E8AB63 /* GeneratedMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF550AD1E57288300E8AB63 /* GeneratedMocks.swift */; };
+		7BF550B01E57341F00E8AB63 /* FeedbackPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF550AF1E57341F00E8AB63 /* FeedbackPresenterTest.swift */; };
 		D8BBF619B2B7EC04D0CEE32E /* Pods_Feedback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD774F236DC3731CD3E98C8D /* Pods_Feedback.framework */; };
 		EAFE93FB93D9DCECEC3C14DF /* Pods_FeedbackUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2F11E41DA53ABCEFCD63849 /* Pods_FeedbackUITests.framework */; };
 /* End PBXBuildFile section */
@@ -64,6 +67,9 @@
 		16E84ABA1E55E0AE002B4245 /* FeedbackProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackProtocols.swift; sourceTree = "<group>"; };
 		16E84ABD1E56D53F002B4245 /* RootWireFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootWireFrame.swift; sourceTree = "<group>"; };
 		6F9ED2F1A24CC826157FD5FF /* Pods-FeedbackUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FeedbackUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FeedbackUITests/Pods-FeedbackUITests.release.xcconfig"; sourceTree = "<group>"; };
+		7BF550AA1E571AD300E8AB63 /* FeedbackViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewTests.swift; sourceTree = "<group>"; };
+		7BF550AD1E57288300E8AB63 /* GeneratedMocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GeneratedMocks.swift; path = Tests/GeneratedMocks.swift; sourceTree = SOURCE_ROOT; };
+		7BF550AF1E57341F00E8AB63 /* FeedbackPresenterTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackPresenterTest.swift; sourceTree = "<group>"; };
 		A2F11E41DA53ABCEFCD63849 /* Pods_FeedbackUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FeedbackUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3587EB057F8677CEEE0700A /* Pods_FeedbackTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FeedbackTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD774F236DC3731CD3E98C8D /* Pods_Feedback.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Feedback.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,8 +144,11 @@
 		16E84A831E55A959002B4245 /* FeedbackTests */ = {
 			isa = PBXGroup;
 			children = (
+				7BF550AD1E57288300E8AB63 /* GeneratedMocks.swift */,
 				16E84A841E55A959002B4245 /* FeedbackTests.swift */,
 				16E84A861E55A959002B4245 /* Info.plist */,
+				7BF550AA1E571AD300E8AB63 /* FeedbackViewTests.swift */,
+				7BF550AF1E57341F00E8AB63 /* FeedbackPresenterTest.swift */,
 			);
 			path = FeedbackTests;
 			sourceTree = "<group>";
@@ -460,7 +469,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n\n# Define output file. Change \"$PROJECT_DIR/Tests\" to your test's root source folder, if it's not the default name.\nOUTPUT_FILE=\"$PROJECT_DIR/Tests/GeneratedMocks.swift\"\necho \"Generated Mocks File = $OUTPUT_FILE\"\n\n# Define input directory. Change \"$PROJECT_DIR\" to your project's root source folder, if it's not the default name.\nINPUT_DIR=\"$PROJECT_DIR\"\necho \"Mocks Input Directory = $INPUT_DIR\"\n\n# Generate mock files, include as many input files as you'd like to create mocks for.\n${PODS_ROOT}/Cuckoo/run generate --testable \"$PROJECT_NAME\" \\\n--output \"${OUTPUT_FILE}\" \\\n\"$INPUT_DIR/Feedback/FeedbackPresenter.swift\" \\\n\"$INPUT_DIR/Feedback/FeedbackInteractor.swift\" \\\n\"$INPUT_DIR/Feedback/FeedbackView.swift\" \\\n# ... and so forth\n\n# After running once, locate `GeneratedMocks.swift` and drag it into your Xcode test target group.\n";
 			showEnvVarsInLog = 0;
 		};
 		B0090917C502F5E452D52002 /* [CP] Embed Pods Frameworks */ = {
@@ -576,6 +585,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				16E84A851E55A959002B4245 /* FeedbackTests.swift in Sources */,
+				7BF550AE1E57288300E8AB63 /* GeneratedMocks.swift in Sources */,
+				7BF550AB1E571AD300E8AB63 /* FeedbackViewTests.swift in Sources */,
+				7BF550B01E57341F00E8AB63 /* FeedbackPresenterTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

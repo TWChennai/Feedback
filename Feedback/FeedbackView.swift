@@ -9,17 +9,18 @@ class FeedbackView: UIViewController, FeedbackViewProtocol {
     
     func showFeedback(feedback: FeedbackModel){
         titleText.text = feedback.name
+        initializeScrollBar()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter!.onViewDidLoad()
-        initializeScrollBar()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
     
     func initializeScrollBar() {
         

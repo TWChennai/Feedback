@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1698AB5D1E5B203E00A810C9 /* TestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1698AB5C1E5B203E00A810C9 /* TestExtensions.swift */; };
 		16E84A701E55A959002B4245 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E84A6F1E55A959002B4245 /* AppDelegate.swift */; };
 		16E84A721E55A959002B4245 /* FeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E84A711E55A959002B4245 /* FeedbackView.swift */; };
 		16E84A751E55A959002B4245 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16E84A731E55A959002B4245 /* Main.storyboard */; };
@@ -48,6 +49,7 @@
 
 /* Begin PBXFileReference section */
 		0412395612C50240083B821E /* Pods-Feedback.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Feedback.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Feedback/Pods-Feedback.debug.xcconfig"; sourceTree = "<group>"; };
+		1698AB5C1E5B203E00A810C9 /* TestExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestExtensions.swift; sourceTree = "<group>"; };
 		16E84A6C1E55A959002B4245 /* Feedback.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Feedback.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16E84A6F1E55A959002B4245 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		16E84A711E55A959002B4245 /* FeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackView.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				7BF550AA1E571AD300E8AB63 /* FeedbackViewTests.swift */,
 				7BF550AF1E57341F00E8AB63 /* FeedbackPresenterTest.swift */,
 				7BDB81E71E5B085900857B99 /* FeedbackInteractorTest.swift */,
+				1698AB5C1E5B203E00A810C9 /* TestExtensions.swift */,
 			);
 			path = FeedbackTests;
 			sourceTree = "<group>";
@@ -591,6 +594,7 @@
 				7BF550AE1E57288300E8AB63 /* GeneratedMocks.swift in Sources */,
 				7BF550AB1E571AD300E8AB63 /* FeedbackViewTests.swift in Sources */,
 				7BF550B01E57341F00E8AB63 /* FeedbackPresenterTest.swift in Sources */,
+				1698AB5D1E5B203E00A810C9 /* TestExtensions.swift in Sources */,
 				7BDB81E81E5B085900857B99 /* FeedbackInteractorTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

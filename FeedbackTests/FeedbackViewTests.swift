@@ -30,7 +30,6 @@ class FeedbackViewTests: QuickSpec {
     }
 
     override func spec() {
-        
         describe("In feedback view") {
             context("View did load") {
                 it("should invoke presenter's view did load") {

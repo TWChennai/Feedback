@@ -8,9 +8,20 @@ import Cuckoo
 class FeedbackViewTests: QuickSpec {
     class FeedbackViewMock: FeedbackView {
         let mockUiLabel =  UILabel()
+        let mockUiScrollView = UIScrollView()
+        
         override var titleText: UILabel! {
             get {
                 return mockUiLabel
+            }
+            set {
+                // Do nothing
+            }
+        }
+        
+        override var itemsScrollView: UIScrollView! {
+            get {
+                return mockUiScrollView
             }
             set {
                 // Do nothing

@@ -6,6 +6,18 @@ import Cuckoo
 @testable import Feedback
 
 class FeedbackViewTests: QuickSpec {
+    class FeedbackViewMock: FeedbackView {
+        let mockUiLabel =  UILabel()
+        override var titleText: UILabel! {
+            get {
+                return mockUiLabel
+            }
+            set {
+                // Do nothing
+            }
+        }
+    }
+
     override func spec() {
         
         describe("In feedback view") {
@@ -21,6 +33,17 @@ class FeedbackViewTests: QuickSpec {
                     feedbackView.viewDidLoad()
                     
                     verify(mockFeedbackPresenter, times(1)).onViewDidLoad()
+                }
+            }
+            
+            context("Show feedback") {
+                it("should set the UI name to feedback name") {
+                    let feedbackView: FeedbackView = FeedbackViewMock()
+                    let feedbackName = "Name"
+                    let feedbackModel = FeedbackModel()
+                    feedbackModel.name = feedbackName
+                    feedbackView.showFeedback(feedback: feedbackModel)
+                    expect(feedbackView.titleText.text == feedbackName).to(beTruthy())
                 }
             }
         }

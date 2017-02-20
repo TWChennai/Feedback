@@ -134,7 +134,6 @@
 		16E84A6E1E55A959002B4245 /* Feedback */ = {
 			isa = PBXGroup;
 			children = (
-				45D34EFB1E5AEE9300E3D762 /* splash.png */,
 				16E84AA81E55D573002B4245 /* Resources */,
 				16E84AA71E55D55A002B4245 /* Classes */,
 				16E84A731E55A959002B4245 /* Main.storyboard */,
@@ -178,6 +177,7 @@
 		16E84AA81E55D573002B4245 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				45D34EFB1E5AEE9300E3D762 /* splash.png */,
 				16E84A761E55A959002B4245 /* Assets.xcassets */,
 			);
 			name = Resources;

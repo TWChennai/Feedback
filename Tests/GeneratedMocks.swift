@@ -286,14 +286,6 @@ class MockFeedbackView: FeedbackView, Cuckoo.Mock {
         }
     }
     
-    override var text1: UILabel! {
-        get {
-            return manager.getter("text1", original: observed.map { o in return { () -> UILabel! in o.text1 } })
-        }
-        set {
-            manager.setter("text1", value: newValue, original: observed != nil ? { self.observed?.text1 = $0 } : nil)
-        }
-    }
     
     override func showFeedback(feedback: FeedbackModel) {
         return manager.call("showFeedback(feedback: FeedbackModel)", parameters: (feedback), original: observed.map { o in return { (feedback: FeedbackModel) in o.showFeedback(feedback: feedback) } })
@@ -392,14 +384,6 @@ class FeedbackViewStub: FeedbackView {
     }
     
     override var titleText: UILabel! {
-        get {
-            return DefaultValueRegistry.defaultValue(for: (UILabel!).self)
-        }
-        set {
-        }
-    }
-    
-    override var text1: UILabel! {
         get {
             return DefaultValueRegistry.defaultValue(for: (UILabel!).self)
         }

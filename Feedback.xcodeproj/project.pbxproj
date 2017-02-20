@@ -21,6 +21,7 @@
 		16E84ABB1E55E0AE002B4245 /* FeedbackProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E84ABA1E55E0AE002B4245 /* FeedbackProtocols.swift */; };
 		16E84ABE1E56D53F002B4245 /* RootWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E84ABD1E56D53F002B4245 /* RootWireFrame.swift */; };
 		34B8583DC8DD89FF043BF124 /* Pods_FeedbackTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3587EB057F8677CEEE0700A /* Pods_FeedbackTests.framework */; };
+		45D34EFC1E5AEE9300E3D762 /* splash.png in Resources */ = {isa = PBXBuildFile; fileRef = 45D34EFB1E5AEE9300E3D762 /* splash.png */; };
 		7BF550AB1E571AD300E8AB63 /* FeedbackViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF550AA1E571AD300E8AB63 /* FeedbackViewTests.swift */; };
 		7BF550AE1E57288300E8AB63 /* GeneratedMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF550AD1E57288300E8AB63 /* GeneratedMocks.swift */; };
 		7BF550B01E57341F00E8AB63 /* FeedbackPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF550AF1E57341F00E8AB63 /* FeedbackPresenterTest.swift */; };
@@ -66,6 +67,7 @@
 		16E84AB71E55E055002B4245 /* FeedbackModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackModel.swift; sourceTree = "<group>"; };
 		16E84ABA1E55E0AE002B4245 /* FeedbackProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackProtocols.swift; sourceTree = "<group>"; };
 		16E84ABD1E56D53F002B4245 /* RootWireFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootWireFrame.swift; sourceTree = "<group>"; };
+		45D34EFB1E5AEE9300E3D762 /* splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash.png; sourceTree = "<group>"; };
 		6F9ED2F1A24CC826157FD5FF /* Pods-FeedbackUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FeedbackUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FeedbackUITests/Pods-FeedbackUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7BF550AA1E571AD300E8AB63 /* FeedbackViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewTests.swift; sourceTree = "<group>"; };
 		7BF550AD1E57288300E8AB63 /* GeneratedMocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GeneratedMocks.swift; path = Tests/GeneratedMocks.swift; sourceTree = SOURCE_ROOT; };
@@ -132,6 +134,7 @@
 		16E84A6E1E55A959002B4245 /* Feedback */ = {
 			isa = PBXGroup;
 			children = (
+				45D34EFB1E5AEE9300E3D762 /* splash.png */,
 				16E84AA81E55D573002B4245 /* Resources */,
 				16E84AA71E55D55A002B4245 /* Classes */,
 				16E84A731E55A959002B4245 /* Main.storyboard */,
@@ -404,6 +407,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45D34EFC1E5AEE9300E3D762 /* splash.png in Resources */,
 				16E84A7A1E55A959002B4245 /* LaunchScreen.storyboard in Resources */,
 				16E84A771E55A959002B4245 /* Assets.xcassets in Resources */,
 				16E84A751E55A959002B4245 /* Main.storyboard in Resources */,

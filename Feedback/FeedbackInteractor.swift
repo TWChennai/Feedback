@@ -7,7 +7,6 @@ class FeedbackInteractor: FeedbackInteractorProtocol {
    var presenter: FeedbackPresenterProtocol?
     
     func getFeedback() -> FeedbackModel{
-        getItems()
         return FeedbackModel()
     }
     

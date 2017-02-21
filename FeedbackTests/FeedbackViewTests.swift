@@ -18,15 +18,6 @@ class FeedbackViewTests: QuickSpec {
                 // Do nothing
             }
         }
-        
-        override var itemsScrollView: UIScrollView! {
-            get {
-                return mockUiScrollView
-            }
-            set {
-                // Do nothing
-            }
-        }
     }
 
     override func spec() {

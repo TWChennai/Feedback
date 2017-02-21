@@ -5,12 +5,10 @@ class FeedbackView: UIViewController, UICollectionViewDataSource, UICollectionVi
     
     @IBOutlet weak var titleText: UILabel!
     
-    @IBOutlet weak var itemsScrollView: UIScrollView!
-    
     @IBOutlet weak var collectionView: UICollectionView!
     
     let myImages = ["splash.png","splash.png","splash.png","splash.png","splash.png","splash.png","splash.png","splash.png","splash.png","splash.png","splash.png","splash.png"]
-
+    
     func showFeedback(feedback: FeedbackModel){
         titleText.text = feedback.name
     }
@@ -36,8 +34,9 @@ class FeedbackView: UIViewController, UICollectionViewDataSource, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        titleText.text = "tapped";
         print("Cell \(indexPath.row) selected")
     }
     
 }
-
+       

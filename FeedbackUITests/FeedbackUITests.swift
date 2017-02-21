@@ -17,6 +17,11 @@ class FeedbackUITests: XCTestCase {
     }
     
     func testExample() {
-//        app?.scrollViews.buttons["1"].tap()
+        let cells = app?.collectionViews.cells;
+        XCTAssert(app?.staticTexts.element(matching: .any, identifier: "Feedback123").label != nil)
+        let cellOne = cells?.element(boundBy: 0)
+        XCTAssertEqual(cells?.count,3)
+        XCTAssert(cellOne?.tap() != nil)
+        XCTAssert(app?.staticTexts.element(matching: .any, identifier: "tapped").label != nil)
     }
 }

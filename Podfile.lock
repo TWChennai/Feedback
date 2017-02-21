@@ -1,12 +1,17 @@
 PODS:
   - Alamofire (4.3.0)
+  - AlamofireObjectMapper (4.0.2):
+    - Alamofire (~> 4.1)
+    - ObjectMapper (~> 2.0)
   - Cuckoo (0.8.3)
   - Nimble (6.0.1)
+  - ObjectMapper (2.2.3)
   - Quick (1.1.0)
   - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
   - Alamofire (~> 4.3)
+  - AlamofireObjectMapper (~> 4.0)
   - Cuckoo
   - Nimble
   - Quick
@@ -14,11 +19,13 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
+  AlamofireObjectMapper: 94923a4320bbe52c1d0d462093277a9d6a755a78
   Cuckoo: 2daf5d23383c0a24cd60b73287a5813af4793add
   Nimble: 1527fd1bd2b4cf0636251a36bc8ab37e81da8347
+  ObjectMapper: d3b3de11267f5d971f390eb8d63dd509116a4329
   Quick: dafc587e21eed9f4cab3249b9f9015b0b7a7f71d
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 92112458577b0fe70811b48ea025691a530c8958
+PODFILE CHECKSUM: 8b01b832d27dfd9c9af0918c46d8bf67056a30d5
 
 COCOAPODS: 1.2.0

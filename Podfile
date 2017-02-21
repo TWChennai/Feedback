@@ -9,6 +9,7 @@ target 'Feedback' do
     pod 'Alamofire', '~> 4.3'
     pod 'SwiftyJSON'
     pod 'AlamofireObjectMapper', '~> 4.0'
+    pod 'MGSwipeTableCell'
 
   target 'FeedbackTests' do
     inherit! :search_paths

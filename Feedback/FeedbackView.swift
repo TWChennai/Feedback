@@ -1,5 +1,4 @@
 import UIKit
-
 class FeedbackView: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, FeedbackViewProtocol{
     var presenter: FeedbackPresenterProtocol?
     

@@ -31,21 +31,26 @@ class FeedbackView: UIViewController, FeedbackViewProtocol {
         let spacer: CGFloat = 10
         var xPosition:CGFloat = 0
         var scrollViewSize:CGFloat=0
+        var index = 0
         
         for image in myImages {
             
             let myImage:UIImage = UIImage(named: image)!
-            let myImageView:UIImageView = UIImageView()
-            myImageView.image = myImage
+            let uiButton = UIButton()
+            uiButton.setImage(myImage, for: UIControlState.normal)
             
-            myImageView.frame.size.width = imageWidth
-            myImageView.frame.size.height = imageHeight
-            myImageView.frame.origin.x = xPosition
-            myImageView.frame.origin.y = 10
+            uiButton.frame.size.width = imageWidth
+            uiButton.frame.size.height = imageHeight
+            uiButton.frame.origin.x = xPosition
+            uiButton.frame.origin.y = 10
+//            uiButton.restorationIdentifier = String(index)
+//            uiButton.setTitle(String(index), for: UIControlState.normal)
+            index+=1
             
-            itemsScrollView.addSubview(myImageView)
+            itemsScrollView.addSubview(uiButton)
             xPosition += imageWidth + spacer
             scrollViewSize += (imageWidth)
+            
         }
         
         itemsScrollView.contentSize = CGSize(width: scrollViewSize + 200, height: imageHeight)

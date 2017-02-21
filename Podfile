@@ -7,6 +7,7 @@ target 'Feedback' do
 
   # Pods for Feedback
     pod 'Alamofire', '~> 4.3'
+    pod 'SwiftyJSON'
 
   target 'FeedbackTests' do
     inherit! :search_paths

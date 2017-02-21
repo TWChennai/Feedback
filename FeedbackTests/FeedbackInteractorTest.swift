@@ -16,6 +16,13 @@ class FeedbackInteractorTests: QuickSpec {
                     expect(feedbackInteractor.getFeedback() == FeedbackModel()).to(beTruthy())
                 }
             }
+            context("Get items") {
+                it("should return items") {
+                    let feedbackInteractor = FeedbackInteractor()
+                    
+                    feedbackInteractor.getItems()
+                }
+            }
         }
     }
 }

@@ -10,14 +10,12 @@ class FeedbackInteractor: FeedbackInteractorProtocol {
         return FeedbackModel()
     }
     
-    func getItems(){
+    func getItems(onLoadedAllItems: @escaping ([ItemModel]) -> ()){
         print("in getForAllInteveiws")
         let url = ProcessInfo.processInfo.environment["FEEDBACK_BACKEND_URL"]
         Alamofire.request(url! + "/items", parameters: ["categoryId": "57b048b0-2002-41f3-908f-103faba36e96"]).responseArray { (response: DataResponse<[ItemModel]>) in
             let items = response.result.value!
-            for item in items {
-                print(item.name!)
-            }
+            onLoadedAllItems(items)
         }
     }
 }

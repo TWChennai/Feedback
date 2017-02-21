@@ -19,7 +19,8 @@ protocol FeedbackPresenterProtocol: class
      */
     
     var feedback: FeedbackModel? { get set }
-    func onViewDidLoad();
+    func onViewDidLoad()
+    func loadItems(onLoadedAllItems: @escaping ([ItemModel]) -> ())
 }
 
 protocol FeedbackViewProtocol: class
@@ -39,6 +40,7 @@ protocol FeedbackInteractorProtocol: class
      */
     
     func getFeedback() -> FeedbackModel
+    func getItems(onLoadedAllItems: @escaping ([ItemModel]) -> ())
 }
 
 

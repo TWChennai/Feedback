@@ -9,4 +9,8 @@ class FeedbackPresenter : FeedbackPresenterProtocol{
         let feedback = interactor!.getFeedback()
         view!.showFeedback(feedback: feedback)
     }
+    
+    func loadItems(onLoadedAllItems: @escaping ([ItemModel]) -> ()) {
+        interactor!.getItems(onLoadedAllItems: onLoadedAllItems)
+    }
 }

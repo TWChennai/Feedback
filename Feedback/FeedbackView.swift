@@ -16,6 +16,7 @@ class FeedbackView: UIViewController, UICollectionViewDataSource, UICollectionVi
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter!.onViewDidLoad()
+        presenter!.loadItems(onLoadedAllItems: onLoadedAllItems)
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,6 +37,12 @@ class FeedbackView: UIViewController, UICollectionViewDataSource, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         titleText.text = "tapped";
         print("Cell \(indexPath.row) selected")
+    }
+    
+    func onLoadedAllItems(items: [ItemModel]){
+        for item in items {
+            print(item.name!)
+        }
     }
     
 }

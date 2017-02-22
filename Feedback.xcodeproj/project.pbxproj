@@ -16,6 +16,7 @@
 		16E84A901E55A959002B4245 /* FeedbackUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E84A8F1E55A959002B4245 /* FeedbackUITests.swift */; };
 		16E84AB81E55E055002B4245 /* FeedbackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E84AB71E55E055002B4245 /* FeedbackModel.swift */; };
 		34B8583DC8DD89FF043BF124 /* Pods_FeedbackTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3587EB057F8677CEEE0700A /* Pods_FeedbackTests.framework */; };
+		45B7D8A21E5DA9FA00E42170 /* AllFeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B7D8A11E5DA9FA00E42170 /* AllFeedbackView.swift */; };
 		45D34EFC1E5AEE9300E3D762 /* splash.png in Resources */ = {isa = PBXBuildFile; fileRef = 45D34EFB1E5AEE9300E3D762 /* splash.png */; };
 		5B5279021E5D7DDD001CB322 /* FeedbackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5279011E5D7DDD001CB322 /* FeedbackViewModel.swift */; };
 		5B5279041E5D8155001CB322 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5279031E5D8155001CB322 /* AppDelegate.swift */; };
@@ -62,6 +63,7 @@
 		16E84A8F1E55A959002B4245 /* FeedbackUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackUITests.swift; sourceTree = "<group>"; };
 		16E84A911E55A959002B4245 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		16E84AB71E55E055002B4245 /* FeedbackModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackModel.swift; sourceTree = "<group>"; };
+		45B7D8A11E5DA9FA00E42170 /* AllFeedbackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllFeedbackView.swift; sourceTree = "<group>"; };
 		45D34EFB1E5AEE9300E3D762 /* splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash.png; sourceTree = "<group>"; };
 		5B5279011E5D7DDD001CB322 /* FeedbackViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewModel.swift; sourceTree = "<group>"; };
 		5B5279031E5D8155001CB322 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 			children = (
 				16E84A711E55A959002B4245 /* FeedbackView.swift */,
 				5BB5859C1E5C299000C0404B /* ItemCellView.swift */,
+				45B7D8A11E5DA9FA00E42170 /* AllFeedbackView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -513,6 +516,7 @@
 				5B5279041E5D8155001CB322 /* AppDelegate.swift in Sources */,
 				7BC17AB41E5C462D00804961 /* ItemModel.swift in Sources */,
 				16E84AB81E55E055002B4245 /* FeedbackModel.swift in Sources */,
+				45B7D8A21E5DA9FA00E42170 /* AllFeedbackView.swift in Sources */,
 				5BB5859D1E5C299000C0404B /* ItemCellView.swift in Sources */,
 				5B5279021E5D7DDD001CB322 /* FeedbackViewModel.swift in Sources */,
 				16E84A721E55A959002B4245 /* FeedbackView.swift in Sources */,

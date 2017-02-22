@@ -19,16 +19,22 @@ platform :ios do
   before_all do
     # ENV["SLACK_URL"] = "https://hooks.slack.com/services/..."
     cocoapods
-    
   end
 
-  desc "Runs all the tests"
-  lane :test do
+desc "Runs all the tests"
+lane :test do
     scan({
     scheme: "Feedback",
     device: "iPhone 6s"
     })
-  end
+
+    xcov(
+    workspace: "Feedback.xcworkspace",
+    scheme: "Feedback",
+    output_directory: "xcov_output",
+    minimum_coverage_percentage: 65.0
+    )  
+end
 
   desc "Submit a new Beta Build to Apple TestFlight"
   desc "This will also make sure the profile is up to date"

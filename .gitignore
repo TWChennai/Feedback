@@ -46,5 +46,5 @@ build
 !*.xcodeproj/project.pbxproj
 !*.xcworkspace/contents.xcworkspacedata
 /*.gcno
-
+xcov_output/
 .DS_Store

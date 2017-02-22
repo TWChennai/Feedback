@@ -25,6 +25,7 @@
 		45D34EFC1E5AEE9300E3D762 /* splash.png in Resources */ = {isa = PBXBuildFile; fileRef = 45D34EFB1E5AEE9300E3D762 /* splash.png */; };
 		5BB5859D1E5C299000C0404B /* ItemCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB5859C1E5C299000C0404B /* ItemCellView.swift */; };
 		7BC17AB41E5C462D00804961 /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC17AB31E5C462D00804961 /* ItemModel.swift */; };
+		7BC17AB61E5D551100804961 /* IteaModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC17AB51E5D551100804961 /* IteaModelTest.swift */; };
 		7BDB81E81E5B085900857B99 /* FeedbackInteractorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDB81E71E5B085900857B99 /* FeedbackInteractorTest.swift */; };
 		7BF550AB1E571AD300E8AB63 /* FeedbackViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF550AA1E571AD300E8AB63 /* FeedbackViewTests.swift */; };
 		7BF550AE1E57288300E8AB63 /* GeneratedMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF550AD1E57288300E8AB63 /* GeneratedMocks.swift */; };
@@ -77,6 +78,7 @@
 		5BB5859C1E5C299000C0404B /* ItemCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCellView.swift; sourceTree = "<group>"; };
 		6F9ED2F1A24CC826157FD5FF /* Pods-FeedbackUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FeedbackUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FeedbackUITests/Pods-FeedbackUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7BC17AB31E5C462D00804961 /* ItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
+		7BC17AB51E5D551100804961 /* IteaModelTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IteaModelTest.swift; sourceTree = "<group>"; };
 		7BDB81E71E5B085900857B99 /* FeedbackInteractorTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackInteractorTest.swift; sourceTree = "<group>"; };
 		7BF550AA1E571AD300E8AB63 /* FeedbackViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewTests.swift; sourceTree = "<group>"; };
 		7BF550AD1E57288300E8AB63 /* GeneratedMocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GeneratedMocks.swift; path = Tests/GeneratedMocks.swift; sourceTree = SOURCE_ROOT; };
@@ -163,6 +165,7 @@
 				7BF550AF1E57341F00E8AB63 /* FeedbackPresenterTest.swift */,
 				7BDB81E71E5B085900857B99 /* FeedbackInteractorTest.swift */,
 				1698AB5C1E5B203E00A810C9 /* TestExtensions.swift */,
+				7BC17AB51E5D551100804961 /* IteaModelTest.swift */,
 			);
 			path = FeedbackTests;
 			sourceTree = "<group>";
@@ -606,6 +609,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BC17AB61E5D551100804961 /* IteaModelTest.swift in Sources */,
 				7BF550AE1E57288300E8AB63 /* GeneratedMocks.swift in Sources */,
 				7BF550AB1E571AD300E8AB63 /* FeedbackViewTests.swift in Sources */,
 				7BF550B01E57341F00E8AB63 /* FeedbackPresenterTest.swift in Sources */,

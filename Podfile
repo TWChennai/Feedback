@@ -17,6 +17,8 @@ target 'Feedback' do
     pod 'Quick'
     pod 'Nimble'
     pod 'Cuckoo'
+    pod 'OHHTTPStubs'
+    pod 'OHHTTPStubs/Swift'
   end
 
   target 'FeedbackUITests' do

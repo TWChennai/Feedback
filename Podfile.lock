@@ -7,6 +7,21 @@ PODS:
   - MGSwipeTableCell (1.5.6)
   - Nimble (6.0.1)
   - ObjectMapper (2.2.3)
+  - OHHTTPStubs (5.2.3):
+    - OHHTTPStubs/Default (= 5.2.3)
+  - OHHTTPStubs/Core (5.2.3)
+  - OHHTTPStubs/Default (5.2.3):
+    - OHHTTPStubs/Core
+    - OHHTTPStubs/JSON
+    - OHHTTPStubs/NSURLSession
+    - OHHTTPStubs/OHPathHelpers
+  - OHHTTPStubs/JSON (5.2.3):
+    - OHHTTPStubs/Core
+  - OHHTTPStubs/NSURLSession (5.2.3):
+    - OHHTTPStubs/Core
+  - OHHTTPStubs/OHPathHelpers (5.2.3)
+  - OHHTTPStubs/Swift (5.2.3):
+    - OHHTTPStubs/Core
   - Quick (1.1.0)
   - SwiftyJSON (3.1.4)
 
@@ -16,6 +31,8 @@ DEPENDENCIES:
   - Cuckoo
   - MGSwipeTableCell
   - Nimble
+  - OHHTTPStubs
+  - OHHTTPStubs/Swift
   - Quick
   - SwiftyJSON
 
@@ -26,9 +43,10 @@ SPEC CHECKSUMS:
   MGSwipeTableCell: 616700eb0ffd1c611ba909066cb7fd739790a0a7
   Nimble: 1527fd1bd2b4cf0636251a36bc8ab37e81da8347
   ObjectMapper: d3b3de11267f5d971f390eb8d63dd509116a4329
+  OHHTTPStubs: e238cd5b66d8efa51c861db45895de8fe079f4a7
   Quick: dafc587e21eed9f4cab3249b9f9015b0b7a7f71d
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 4c5e77f6f196e8688689853605747c9c5c444205
+PODFILE CHECKSUM: 2acfeb87cd64bd313ac0e00901728f27f0e47df1
 
 COCOAPODS: 1.2.0

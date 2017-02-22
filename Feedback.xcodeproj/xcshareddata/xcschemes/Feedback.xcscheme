@@ -81,6 +81,13 @@
             ReferencedContainer = "container:Feedback.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "FEEDBACK_BACKEND_URL"
+            value = "http://54.255.184.116:3050"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

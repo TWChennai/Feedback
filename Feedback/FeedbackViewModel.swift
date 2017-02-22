@@ -1,15 +1,15 @@
+
 import Foundation
 import Alamofire
 import SwiftyJSON
 import AlamofireObjectMapper
 
-class FeedbackInteractor: FeedbackInteractorProtocol {
-   var presenter: FeedbackPresenterProtocol?
+class FeedbackViewModel {
     
-    func getFeedback() -> FeedbackModel{
-        return FeedbackModel()
+    var model: FeedbackModel
+    init() {
+        model = FeedbackModel()
     }
-    
     func getItems(onLoadedAllItems: @escaping ([ItemModel]) -> ()){
         print("in getForAllInteveiws")
         let url = ProcessInfo.processInfo.environment["FEEDBACK_BACKEND_URL"]
@@ -17,5 +17,8 @@ class FeedbackInteractor: FeedbackInteractorProtocol {
             let items = response.result.value!
             onLoadedAllItems(items)
         }
+    }
+    func getName() -> String {
+        return model.name
     }
 }

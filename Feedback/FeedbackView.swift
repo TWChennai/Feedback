@@ -1,6 +1,8 @@
 import UIKit
-class FeedbackView: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, FeedbackViewProtocol{
-    var presenter: FeedbackPresenterProtocol?
+
+class FeedbackView: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+    var viewModel: FeedbackViewModel =  FeedbackViewModel()
+    
     
     @IBOutlet weak var titleText: UILabel!
     
@@ -8,14 +10,10 @@ class FeedbackView: UIViewController, UICollectionViewDataSource, UICollectionVi
     
     let myImages = ["splash.png","splash.png","splash.png","splash.png","splash.png","splash.png","splash.png","splash.png","splash.png","splash.png","splash.png","splash.png"]
     
-    func showFeedback(feedback: FeedbackModel){
-        titleText.text = feedback.name
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter!.onViewDidLoad()
-        presenter!.loadItems(onLoadedAllItems: onLoadedAllItems)
+        titleText.text = viewModel.getName()
+        viewModel.getItems(onLoadedAllItems: onLoadedAllItems)
     }
 
     override func didReceiveMemoryWarning() {

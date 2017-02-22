@@ -19,34 +19,24 @@ class FeedbackViewTests: QuickSpec {
             }
         }
     }
-
+    
     override func spec() {
         describe("In feedback view") {
             context("View did load") {
                 it("should invoke presenter's view did load") {
-                    let feedbackView = FeedbackView()
-                    let mockFeedbackPresenter = MockFeedbackPresenter()
-                    stub(mockFeedbackPresenter) { stub in
-                        when(stub.onViewDidLoad()).thenDoNothing()
-                    }
-                    feedbackView.presenter = mockFeedbackPresenter
-                    
-                    feedbackView.viewDidLoad()
-                    
-                    verify(mockFeedbackPresenter, times(1)).onViewDidLoad()
-                }
-            }
-            
-            context("Show feedback") {
-                it("should set the UI name to feedback name") {
-                    let feedbackView: FeedbackView = FeedbackViewMock()
+                    let feedbackView = FeedbackViewMock()
                     let feedbackName = "Name"
                     let feedbackModel = FeedbackModel()
                     feedbackModel.name = feedbackName
-                    feedbackView.showFeedback(feedback: feedbackModel)
+                    let viewmodel = FeedbackViewModel()
+                    viewmodel.model = feedbackModel
+                    feedbackView.viewModel = viewmodel
+                    feedbackView.viewDidLoad()
+                    
                     expect(feedbackView.titleText.text == feedbackName).to(beTruthy())
                 }
             }
+            
         }
     }
 }

@@ -23,7 +23,11 @@ target 'Feedback' do
 
   target 'FeedbackUITests' do
     inherit! :search_paths
-    # Pods for testing
+    pod 'OHHTTPStubs'
+    pod 'OHHTTPStubs/Swift'
+    pod 'Cuckoo'
+    pod 'Quick'
+    pod 'Nimble'
   end
 
 end

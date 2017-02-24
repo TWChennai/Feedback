@@ -23,6 +23,9 @@ PODS:
   - OHHTTPStubs/Swift (5.2.3):
     - OHHTTPStubs/Core
   - Quick (1.1.0)
+  - SDWebImage (4.0.0):
+    - SDWebImage/Core (= 4.0.0)
+  - SDWebImage/Core (4.0.0)
   - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
@@ -34,6 +37,7 @@ DEPENDENCIES:
   - OHHTTPStubs
   - OHHTTPStubs/Swift
   - Quick
+  - SDWebImage (~> 4.0.0)
   - SwiftyJSON
 
 SPEC CHECKSUMS:
@@ -45,8 +49,9 @@ SPEC CHECKSUMS:
   ObjectMapper: d3b3de11267f5d971f390eb8d63dd509116a4329
   OHHTTPStubs: e238cd5b66d8efa51c861db45895de8fe079f4a7
   Quick: dafc587e21eed9f4cab3249b9f9015b0b7a7f71d
+  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: e67bd09a02a20fb4db360d9017d55902c8e54fda
+PODFILE CHECKSUM: ca85f6297be7f208e8e3af3d36254dc1e07b06be
 
 COCOAPODS: 1.2.0

@@ -32,6 +32,5 @@ class FeedbackUITests: XCTestCase {
         let cellOne = cells?.element(boundBy: 0)
         XCTAssertEqual(cells?.count,3)
         XCTAssertNotNil(cellOne?.tap())
-        XCTAssertNotNil(app?.staticTexts.element(matching: .any, identifier: "tapped").label)
     }
 }

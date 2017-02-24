@@ -10,6 +10,7 @@ target 'Feedback' do
     pod 'SwiftyJSON'
     pod 'AlamofireObjectMapper', '~> 4.0'
     pod 'MGSwipeTableCell'
+    pod 'SDWebImage', '~> 4.0.0'
 
   target 'FeedbackTests' do
     inherit! :search_paths

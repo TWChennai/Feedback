@@ -71,11 +71,16 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="cVe-WR-zRK"/>
                                 </connections>
                             </collectionView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D4C-ZN-sOk">
+                                <rect key="frame" x="70" y="164" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="auD-tb-nud" id="sfa-VA-Zr4"/>
+                        <outlet property="itemImage" destination="D4C-ZN-sOk" id="KCz-s9-raR"/>
                         <outlet property="titleText" destination="mdA-Je-u71" id="QTy-Fi-cpG"/>
                     </connections>
                 </viewController>

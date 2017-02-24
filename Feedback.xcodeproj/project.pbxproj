@@ -20,6 +20,7 @@
 		45D34EFC1E5AEE9300E3D762 /* splash.png in Resources */ = {isa = PBXBuildFile; fileRef = 45D34EFB1E5AEE9300E3D762 /* splash.png */; };
 		5B5279021E5D7DDD001CB322 /* FeedbackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5279011E5D7DDD001CB322 /* FeedbackViewModel.swift */; };
 		5B5279041E5D8155001CB322 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5279031E5D8155001CB322 /* AppDelegate.swift */; };
+		5B5279061E5EB8DC001CB322 /* feedback.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 5B5279051E5EB8DC001CB322 /* feedback.jpeg */; };
 		5BB5859D1E5C299000C0404B /* ItemCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB5859C1E5C299000C0404B /* ItemCellView.swift */; };
 		7BA5FA351E5DA621002E52E1 /* FeedbackViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA5FA341E5DA621002E52E1 /* FeedbackViewModelTest.swift */; };
 		7BC17AB41E5C462D00804961 /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC17AB31E5C462D00804961 /* ItemModel.swift */; };
@@ -67,6 +68,7 @@
 		45D34EFB1E5AEE9300E3D762 /* splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash.png; sourceTree = "<group>"; };
 		5B5279011E5D7DDD001CB322 /* FeedbackViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewModel.swift; sourceTree = "<group>"; };
 		5B5279031E5D8155001CB322 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5B5279051E5EB8DC001CB322 /* feedback.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = feedback.jpeg; sourceTree = "<group>"; };
 		5BB5859C1E5C299000C0404B /* ItemCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCellView.swift; sourceTree = "<group>"; };
 		6F9ED2F1A24CC826157FD5FF /* Pods-FeedbackUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FeedbackUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FeedbackUITests/Pods-FeedbackUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7BA5FA341E5DA621002E52E1 /* FeedbackViewModelTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewModelTest.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 		16E84AA81E55D573002B4245 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5B5279051E5EB8DC001CB322 /* feedback.jpeg */,
 				45D34EFB1E5AEE9300E3D762 /* splash.png */,
 				16E84A761E55A959002B4245 /* Assets.xcassets */,
 			);
@@ -348,6 +351,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				45D34EFC1E5AEE9300E3D762 /* splash.png in Resources */,
+				5B5279061E5EB8DC001CB322 /* feedback.jpeg in Resources */,
 				16E84A7A1E55A959002B4245 /* LaunchScreen.storyboard in Resources */,
 				16E84A771E55A959002B4245 /* Assets.xcassets in Resources */,
 				16E84A751E55A959002B4245 /* Main.storyboard in Resources */,

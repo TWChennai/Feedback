@@ -1,14 +1,10 @@
 import XCTest
-import Quick
-import Nimble
 import Foundation
-import OHHTTPStubs
-import Cuckoo
 
 extension XCUIApplication {
     func launchTestsWithEnvironmentVariables() {
         launchEnvironment = [
-            "FEEDBACK_BACKEND_URL" : "http://12.12.12.12:8000"
+            "FEEDBACK_BACKEND_URL" : "http://54.255.184.116:3050"
         ]
         self.launch()
     }
@@ -30,17 +26,12 @@ class FeedbackUITests: XCTestCase {
     }
     
     func testExample() {
-        let stubbedInterviews = "Interview 1"
-        stub(condition: isHost("stubwebser")) { _ in
-            let interview = [stubbedInterviews]
-            let stubData: Data = NSKeyedArchiver.archivedData(withRootObject: interview) as Data
-            return OHHTTPStubsResponse(data: stubData, statusCode: 200, headers: nil)
-        }
         let cells = app?.collectionViews.cells;
-        XCTAssert(app?.staticTexts.element(matching: .any, identifier: "Feedback123").label != nil)
+        XCTAssertNotNil(app?.staticTexts.element(matching: .any, identifier: "Feedback123").label)
+        sleep(5) // fix it
         let cellOne = cells?.element(boundBy: 0)
         XCTAssertEqual(cells?.count,3)
-        XCTAssert(cellOne?.tap() != nil)
-        XCTAssert(app?.staticTexts.element(matching: .any, identifier: "tapped").label != nil)
+        XCTAssertNotNil(cellOne?.tap())
+        XCTAssertNotNil(app?.staticTexts.element(matching: .any, identifier: "tapped").label)
     }
 }

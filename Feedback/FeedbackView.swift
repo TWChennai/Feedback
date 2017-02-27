@@ -1,5 +1,6 @@
 import UIKit
 import SDWebImage
+import Toast_Swift
 
 class FeedbackView: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDataSource, UITableViewDelegate {
     var viewModel: FeedbackViewModel =  FeedbackViewModel()
@@ -52,6 +53,11 @@ class FeedbackView: UIViewController, UICollectionViewDataSource, UICollectionVi
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+        let feedback = currentItem.predefinedFeedbacks[indexPath.row]
+        viewModel.addFeedback(item: currentItem, feedback: feedback, onSuccess: successfullySubmitted)
+    }
+    
     func reloadWith(item: ItemModel) {
         let itemName: String = item.name!
         itemImage.sd_setImage(with: URL(string: "\(S3_URL)\(itemName.lowercased()).jpg"))
@@ -64,6 +70,10 @@ class FeedbackView: UIViewController, UICollectionViewDataSource, UICollectionVi
         self.items = items
         collectionView.reloadData()
         reloadWith(item: items[0])
+    }
+    
+    func successfullySubmitted() {
+        self.view.makeToast("Feedback submitted")
     }
     
 }

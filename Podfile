@@ -11,6 +11,7 @@ target 'Feedback' do
     pod 'AlamofireObjectMapper', '~> 4.0'
     pod 'MGSwipeTableCell'
     pod 'SDWebImage', '~> 4.0.0'
+    pod 'Toast-Swift', '~> 2.0.0'
 
   target 'FeedbackTests' do
     inherit! :search_paths

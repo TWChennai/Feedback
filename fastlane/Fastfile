@@ -36,6 +36,11 @@ lane :test do
     )  
 end
 
+desc "Setup"
+lane :setup do
+ # No specific command
+end
+
   desc "Submit a new Beta Build to Apple TestFlight"
   desc "This will also make sure the profile is up to date"
   lane :beta do

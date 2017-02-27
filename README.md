@@ -4,8 +4,11 @@ Feedback iOS app for food
 # Prerequisite
 * Xcode-8
 
-# Steps to run tests
+# Setup
 * bundle install
+* fastlane setup
+
+# Steps to run tests
 * ./test.sh
 
 # Steps to run the emulator

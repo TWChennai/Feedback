@@ -1,9 +1,10 @@
 import UIKit
 import SDWebImage
 
-class FeedbackView: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class FeedbackView: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDataSource, UITableViewDelegate {
     var viewModel: FeedbackViewModel =  FeedbackViewModel()
     var items: Array<ItemModel> = []
+    var currentItem: ItemModel = ItemModel()
     let S3_URL: String = ProcessInfo.processInfo.environment["S3_URL"]!
     
     @IBOutlet weak var titleText: UILabel!
@@ -11,6 +12,8 @@ class FeedbackView: UIViewController, UICollectionViewDataSource, UICollectionVi
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var itemImage: UIImageView!
+    
+    @IBOutlet weak var predefinedFeedback: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,19 +38,32 @@ class FeedbackView: UIViewController, UICollectionViewDataSource, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        setImageOnMain(item: items[indexPath.row])
+        reloadWith(item: items[indexPath.row])
         print("Cell \(indexPath.row) selected")
     }
     
-    func setImageOnMain(item: ItemModel) {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return currentItem.predefinedFeedbacks.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "FeedbackCell")!
+        cell.textLabel?.text = currentItem.predefinedFeedbacks[indexPath.row]
+        return cell
+    }
+    
+    func reloadWith(item: ItemModel) {
         let itemName: String = item.name!
         itemImage.sd_setImage(with: URL(string: "\(S3_URL)\(itemName.lowercased()).jpg"))
         itemImage.image?.accessibilityLabel = itemName.lowercased()
+        currentItem = item
+        predefinedFeedback.reloadData()
     }
+    
     func onLoadedAllItems(items: [ItemModel]) {
         self.items = items
         collectionView.reloadData()
-        setImageOnMain(item: items[0])
+        reloadWith(item: items[0])
     }
     
 }

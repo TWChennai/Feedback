@@ -35,15 +35,19 @@ class FeedbackView: UIViewController, UICollectionViewDataSource, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let itemName: String = items[indexPath.row].name!
-        itemImage.sd_setImage(with: URL(string: "\(S3_URL)\(itemName.lowercased()).jpg"))
-        itemImage.image?.accessibilityLabel = itemName.lowercased()
+        setImageOnMain(item: items[indexPath.row])
         print("Cell \(indexPath.row) selected")
     }
     
+    func setImageOnMain(item: ItemModel) {
+        let itemName: String = item.name!
+        itemImage.sd_setImage(with: URL(string: "\(S3_URL)\(itemName.lowercased()).jpg"))
+        itemImage.image?.accessibilityLabel = itemName.lowercased()
+    }
     func onLoadedAllItems(items: [ItemModel]) {
         self.items = items
         collectionView.reloadData()
+        setImageOnMain(item: items[0])
     }
     
 }

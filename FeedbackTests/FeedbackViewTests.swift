@@ -6,34 +6,20 @@ import Cuckoo
 @testable import Feedback
 
 class FeedbackViewTests: QuickSpec {
-    class FeedbackViewMock: FeedbackView {
-        let mockUiLabel =  UILabel()
-        let mockUiScrollView = UIScrollView()
-        
-        override var titleText: UILabel! {
-            get {
-                return mockUiLabel
-            }
-            set {
-                // Do nothing
-            }
-        }
-    }
-    
     override func spec() {
         describe("In feedback view") {
-            context("View did load") {
-                it("should invoke presenter's view did load") {
-                    let feedbackView = FeedbackViewMock()
-                    let feedbackName = "Name"
-                    let feedbackModel = FeedbackModel()
-                    feedbackModel.name = feedbackName
-                    let viewmodel = FeedbackViewModel()
-                    viewmodel.model = feedbackModel
+            context("view did load") {
+                it("should get data from view model") {
+                    let feedbackView = FeedbackView()
+                    let viewmodel = MockFeedbackViewModel()
                     feedbackView.viewModel = viewmodel
+                    stub(viewmodel) { viewmodel in
+                        when(viewmodel.getItems(onLoadedAllItems: anyClosure())).thenDoNothing()
+                    }
+                    
                     feedbackView.viewDidLoad()
                     
-                    expect(feedbackView.titleText.text == feedbackName).to(beTruthy())
+                    verify(viewmodel).getItems(onLoadedAllItems: anyClosure())
                 }
             }
             

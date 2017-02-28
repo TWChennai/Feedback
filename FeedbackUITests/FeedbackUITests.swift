@@ -28,7 +28,6 @@ class FeedbackUITests: XCTestCase {
     
     func testExample() {
         let cells = app?.collectionViews.cells;
-        XCTAssertNotNil(app?.staticTexts.element(matching: .any, identifier: "Feedback123").label)
         sleep(5) // fix it
         let cellTwo = cells?.element(boundBy: 1)
         XCTAssertEqual(cells?.count,3)

@@ -88,6 +88,11 @@
             value = "http://54.255.184.116:3050"
             isEnabled = "YES">
          </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "S3_URL"
+            value = "https://s3.amazonaws.com/recruitx-feedback-image-qa/uploads/"
+            isEnabled = "YES">
+         </EnvironmentVariable>
       </EnvironmentVariables>
       <AdditionalOptions>
       </AdditionalOptions>

@@ -8,8 +8,6 @@ class FeedbackView: UIViewController, UICollectionViewDataSource, UICollectionVi
     var currentItem: ItemModel = ItemModel()
     let S3_URL: String = ProcessInfo.processInfo.environment["S3_URL"]!
     
-    @IBOutlet weak var titleText: UILabel!
-    
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var itemImage: UIImageView!
@@ -18,7 +16,6 @@ class FeedbackView: UIViewController, UICollectionViewDataSource, UICollectionVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        titleText.text = viewModel.getName()
         viewModel.getItems(onLoadedAllItems: onLoadedAllItems)
     }
 

@@ -28,15 +28,6 @@ class MockFeedbackView: FeedbackView, Cuckoo.Mock {
         }
     }
     
-    override var titleText: UILabel! {
-        get {
-            return manager.getter("titleText", original: observed.map { o in return { () -> UILabel! in o.titleText } })
-        }
-        set {
-            manager.setter("titleText", value: newValue, original: observed != nil ? { self.observed?.titleText = $0 } : nil)
-        }
-    }
-    
     override var collectionView: UICollectionView! {
         get {
             return manager.getter("collectionView", original: observed.map { o in return { () -> UICollectionView! in o.collectionView } })
@@ -182,14 +173,6 @@ class FeedbackViewStub: FeedbackView {
     override var viewModel: FeedbackViewModel {
         get {
             return DefaultValueRegistry.defaultValue(for: (FeedbackViewModel).self)
-        }
-        set {
-        }
-    }
-    
-    override var titleText: UILabel! {
-        get {
-            return DefaultValueRegistry.defaultValue(for: (UILabel!).self)
         }
         set {
         }

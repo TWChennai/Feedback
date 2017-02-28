@@ -22,13 +22,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mdA-Je-u71">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" indicatorStyle="black" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="auD-tb-nud">
                                 <rect key="frame" x="16" y="479" width="349" height="168"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -41,7 +34,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="5Oe-m9-zyX" customClass="ItemCellView" customModule="Feedback" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="14" width="111" height="141"/>
+                                        <rect key="frame" x="0.0" y="13.5" width="111" height="141"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="111" height="141"/>
@@ -84,7 +77,7 @@
                                         <rect key="frame" x="0.0" y="28" width="275" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NuP-Lj-2b3" id="sVs-sf-cDh">
-                                            <rect key="frame" x="0.0" y="0.0" width="275" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="275" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -101,7 +94,6 @@
                         <outlet property="collectionView" destination="auD-tb-nud" id="sfa-VA-Zr4"/>
                         <outlet property="itemImage" destination="D4C-ZN-sOk" id="KCz-s9-raR"/>
                         <outlet property="predefinedFeedback" destination="XZn-hN-crX" id="X8b-Tw-wax"/>
-                        <outlet property="titleText" destination="mdA-Je-u71" id="QTy-Fi-cpG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

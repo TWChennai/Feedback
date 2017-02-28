@@ -12,7 +12,7 @@ target 'Feedback' do
     pod 'MGSwipeTableCell'
     pod 'SDWebImage', '~> 4.0.0'
     pod 'Toast-Swift', '~> 2.0.0'
-
+    pod 'HockeySDK'
   target 'FeedbackTests' do
     inherit! :search_paths
     # Pods for testing

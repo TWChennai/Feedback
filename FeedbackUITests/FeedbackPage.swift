@@ -9,11 +9,11 @@
 import Foundation
 import XCTest
 
-public class FeedbackPage : BasePage
+public class FeedbackPage:BasePage
 {
-    let application = app
     
-    let feedbackLabel = app.staticTexts.element(matching: .any, identifier: "Feedback123")
+    let application=BasePage.app
+    
     let foodMenuLists = app.collectionViews.cells
     let feedbackLists = app.tables.cells.staticTexts
     let feedbackSubmittedStaticText = app.staticTexts["Feedback submitted"]
@@ -32,12 +32,6 @@ public class FeedbackPage : BasePage
         
     }
 
-    
-    func verifyFeedbackLogo()
-    {
-        XCTAssertNotNil(feedbackLabel.label)
-    }
-    
     func verifyNumberOfFoodMenuDisplayed(numberOfFoodMenu: UInt)
     {
         XCTestCase().waitForElementToAppear(element: foodMenuLists.element(boundBy: 1))

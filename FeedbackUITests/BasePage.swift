@@ -9,8 +9,8 @@
 import Foundation
 import XCTest
 
-public class BasePage
-{
-    static let app=XCUIApplication()
+public class BasePage {
+    
+    static let app = XCUIApplication()
     
 }

@@ -9,7 +9,6 @@ class FeedbackUITests: BaseTest {
     let expectedFeedbackLists=["good","sour","watery"]
     
     func testExample() {
-        feedbackPage.verifyFeedbackLogo()
         feedbackPage.selectFoodMenuList(menuName: menuItem)
         feedbackPage.verifyNumberOfFoodMenuDisplayed(numberOfFoodMenu: 4)
         feedbackPage.verifySelectedMenuItem(menuName: menuImageName, numberOfFeedbackList: 3,expectedFeedbackLists: expectedFeedbackLists)

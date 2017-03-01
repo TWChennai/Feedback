@@ -7,23 +7,26 @@ import OHHTTPStubs
 @testable import Feedback
 
 class FeedbackViewModelTests: QuickSpec {
+    var items: Array<ItemModel> = []
+    
     override func spec() {
         describe("In feedback view model") {
             context("Get items") {
                 it("should return items") {
-                    var called = false
-                    let feedbackInteractor = FeedbackViewModel()
+                    let feedbackViewModel = FeedbackViewModel()
                     let stubbedItems = [["type": "value1"],["type":"value2"]]
+                    
                     stub(condition: isHost("54.255.184.116")) { _ in
                         return OHHTTPStubsResponse(jsonObject: stubbedItems, statusCode: 200, headers: [ "Content-Type": "application/json" ])
                     }
-                    func abc(arg: [ItemModel]){
-                        called = true
+                    func callback(arg: [ItemModel]) {
+                        self.items = arg
                     }
+                    expect(self.items.count).to(equal(0))
                     
-                    feedbackInteractor.getItems(onLoadedAllItems: abc)
+                    feedbackViewModel.getItems(onLoadedAllItems: callback)
                     
-                    expect(called).toEventually(equal(true))
+                    expect(self.items.count).toEventually(equal(2))
                 }
             }
             

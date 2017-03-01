@@ -1,4 +1,4 @@
-// MARK: - Mocks generated from file: Feedback/FeedbackViewModel.swift at 2017-03-01 12:25:31 +0000
+// MARK: - Mocks generated from file: Feedback/FeedbackViewModel.swift at 2017-03-01 14:31:12 +0000
 
 
 import Cuckoo

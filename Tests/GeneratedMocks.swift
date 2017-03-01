@@ -22,15 +22,6 @@ class MockFeedbackViewModel: FeedbackViewModel, Cuckoo.Mock {
         return self
     }
     
-    override var model: FeedbackModel {
-        get {
-            return manager.getter("model", original: observed.map { o in return { () -> FeedbackModel in o.model } })
-        }
-        set {
-            manager.setter("model", value: newValue, original: observed != nil ? { self.observed?.model = $0 } : nil)
-        }
-    }
-    
     override func getItems(onLoadedAllItems: @escaping ([ItemModel]) -> ()) {
         return manager.call("getItems(onLoadedAllItems: @escaping ([ItemModel]) -> ())", parameters: (onLoadedAllItems), original: observed.map { o in return { (onLoadedAllItems: @escaping ([ItemModel]) -> ()) in o.getItems(onLoadedAllItems: onLoadedAllItems) } })
     }
@@ -91,14 +82,6 @@ class MockFeedbackViewModel: FeedbackViewModel, Cuckoo.Mock {
 }
 
 class FeedbackViewModelStub: FeedbackViewModel {
-    
-    override var model: FeedbackModel {
-        get {
-            return DefaultValueRegistry.defaultValue(for: (FeedbackModel).self)
-        }
-        set {
-        }
-    }
     
     override func getItems(onLoadedAllItems: @escaping ([ItemModel]) -> ()) {
         return DefaultValueRegistry.defaultValue(for: (Void).self)

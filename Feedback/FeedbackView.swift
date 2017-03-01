@@ -1,8 +1,7 @@
 import UIKit
 import SDWebImage
-import Toast_Swift
 
-class FeedbackView: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDataSource, UITableViewDelegate {
+class FeedbackView: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     var viewModel: FeedbackViewModel =  FeedbackViewModel()
     var items: Array<ItemModel> = []
     var currentItem: ItemModel = ItemModel()
@@ -17,12 +16,9 @@ class FeedbackView: UIViewController, UICollectionViewDataSource, UICollectionVi
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.getItems(onLoadedAllItems: onLoadedAllItems)
+//        predefinedFeedback.tableFooterView = UIView()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return items.count
     }
@@ -36,42 +32,13 @@ class FeedbackView: UIViewController, UICollectionViewDataSource, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        reloadWith(item: items[indexPath.row])
-        print("Cell \(indexPath.row) selected")
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return currentItem.predefinedFeedbacks.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "FeedbackCell")!
-        cell.textLabel?.text = currentItem.predefinedFeedbacks[indexPath.row]
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
-        let feedback = currentItem.predefinedFeedbacks[indexPath.row]
-        viewModel.addFeedback(item: currentItem, feedback: feedback, onSuccess: successfullySubmitted)
-    }
-    
-    func reloadWith(item: ItemModel) {
-        let itemName: String = item.name!
-        itemImage.sd_setImage(with: URL(string: "\(S3_URL)\(itemName.lowercased()).jpg"))
-        itemImage.image?.accessibilityLabel = itemName.lowercased()
-        currentItem = item
-        predefinedFeedback.reloadData()
+        reloadFeedbackCaptureView(item: items[indexPath.row])
     }
     
     func onLoadedAllItems(items: [ItemModel]) {
         self.items = items
         collectionView.reloadData()
-        reloadWith(item: items[0])
+        reloadFeedbackCaptureView(item: items[0])
     }
-    
-    func successfullySubmitted() {
-        self.view.makeToast("Feedback submitted")
-    }
-    
 }
        

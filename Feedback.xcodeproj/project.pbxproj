@@ -24,6 +24,7 @@
 		4CCA645B1E66F92B0011C8BC /* MonkeyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCA645A1E66F92B0011C8BC /* MonkeyTests.swift */; };
 		4CCA645D1E6722EB0011C8BC /* BasePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCA645C1E6722EB0011C8BC /* BasePage.swift */; };
 		5B0A036B1E66CF0100B429EA /* GeneratedMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0A036A1E66CF0100B429EA /* GeneratedMocks.swift */; };
+		5B0A036E1E67416400B429EA /* CaptureFeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0A036D1E67416400B429EA /* CaptureFeedbackViewController.swift */; };
 		5B5279021E5D7DDD001CB322 /* FeedbackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5279011E5D7DDD001CB322 /* FeedbackViewModel.swift */; };
 		5B5279041E5D8155001CB322 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5279031E5D8155001CB322 /* AppDelegate.swift */; };
 		5B5279061E5EB8DC001CB322 /* feedback.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 5B5279051E5EB8DC001CB322 /* feedback.jpeg */; };
@@ -78,6 +79,7 @@
 		4CCA645A1E66F92B0011C8BC /* MonkeyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonkeyTests.swift; sourceTree = "<group>"; };
 		4CCA645C1E6722EB0011C8BC /* BasePage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePage.swift; sourceTree = "<group>"; };
 		5B0A036A1E66CF0100B429EA /* GeneratedMocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GeneratedMocks.swift; path = Tests/GeneratedMocks.swift; sourceTree = SOURCE_ROOT; };
+		5B0A036D1E67416400B429EA /* CaptureFeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureFeedbackViewController.swift; sourceTree = "<group>"; };
 		5B5279011E5D7DDD001CB322 /* FeedbackViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewModel.swift; sourceTree = "<group>"; };
 		5B5279031E5D8155001CB322 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B5279051E5EB8DC001CB322 /* feedback.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = feedback.jpeg; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				16E84A711E55A959002B4245 /* FeedbackView.swift */,
+				5B0A036D1E67416400B429EA /* CaptureFeedbackViewController.swift */,
 				5BB5859C1E5C299000C0404B /* ItemCellView.swift */,
 				45B7D8A11E5DA9FA00E42170 /* AllFeedbackView.swift */,
 			);
@@ -565,6 +568,7 @@
 				45B7D8A21E5DA9FA00E42170 /* AllFeedbackView.swift in Sources */,
 				5BB5859D1E5C299000C0404B /* ItemCellView.swift in Sources */,
 				5B5279021E5D7DDD001CB322 /* FeedbackViewModel.swift in Sources */,
+				5B0A036E1E67416400B429EA /* CaptureFeedbackViewController.swift in Sources */,
 				16E84A721E55A959002B4245 /* FeedbackView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

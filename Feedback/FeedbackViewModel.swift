@@ -17,9 +17,6 @@ class FeedbackViewModel {
             onLoadedAllItems(items)
         }
     }
-    func getName() -> String {
-        return model.name
-    }
     
     func addFeedback(item:ItemModel, feedback: String, onSuccess: @escaping () -> ()){
         let url = ProcessInfo.processInfo.environment["FEEDBACK_BACKEND_URL"]

@@ -1,4 +1,4 @@
-// MARK: - Mocks generated from file: Feedback/FeedbackViewModel.swift at 2017-03-01 10:29:24 +0000
+// MARK: - Mocks generated from file: Feedback/FeedbackViewModel.swift at 2017-03-01 12:25:31 +0000
 
 
 import Cuckoo
@@ -35,10 +35,6 @@ class MockFeedbackViewModel: FeedbackViewModel, Cuckoo.Mock {
         return manager.call("getItems(onLoadedAllItems: @escaping ([ItemModel]) -> ())", parameters: (onLoadedAllItems), original: observed.map { o in return { (onLoadedAllItems: @escaping ([ItemModel]) -> ()) in o.getItems(onLoadedAllItems: onLoadedAllItems) } })
     }
     
-    override func getName() -> String {
-        return manager.call("getName() -> String", parameters: (), original: observed.map { o in return { () -> String in o.getName() } })
-    }
-    
     override func addFeedback(item: ItemModel, feedback: String, onSuccess: @escaping () -> ()) {
         return manager.call("addFeedback(item: ItemModel, feedback: String, onSuccess: @escaping () -> ())", parameters: (item, feedback, onSuccess), original: observed.map { o in return { (item: ItemModel, feedback: String, onSuccess: @escaping () -> ()) in o.addFeedback(item: item, feedback: feedback, onSuccess: onSuccess) } })
     }
@@ -57,10 +53,6 @@ class MockFeedbackViewModel: FeedbackViewModel, Cuckoo.Mock {
         func getItems<M1: Cuckoo.Matchable>(onLoadedAllItems: M1) -> Cuckoo.StubNoReturnFunction<(([ItemModel]) -> ())> where M1.MatchedType == ([ItemModel]) -> () {
             let matchers: [Cuckoo.ParameterMatcher<(([ItemModel]) -> ())>] = [wrap(matchable: onLoadedAllItems) { $0 }]
             return Cuckoo.StubNoReturnFunction(stub: manager.createStub("getItems(onLoadedAllItems: @escaping ([ItemModel]) -> ())", parameterMatchers: matchers))
-        }
-        
-        func getName() -> Cuckoo.StubFunction<(), String> {
-            return Cuckoo.StubFunction(stub: manager.createStub("getName() -> String", parameterMatchers: []))
         }
         
         func addFeedback<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable, M3: Cuckoo.Matchable>(item: M1, feedback: M2, onSuccess: M3) -> Cuckoo.StubNoReturnFunction<(ItemModel, String, () -> ())> where M1.MatchedType == ItemModel, M2.MatchedType == String, M3.MatchedType == () -> () {
@@ -91,11 +83,6 @@ class MockFeedbackViewModel: FeedbackViewModel, Cuckoo.Mock {
         }
         
         @discardableResult
-        func getName() -> Cuckoo.__DoNotUse<String> {
-            return manager.verify("getName() -> String", callMatcher: callMatcher, parameterMatchers: [] as [Cuckoo.ParameterMatcher<Void>], sourceLocation: sourceLocation)
-        }
-        
-        @discardableResult
         func addFeedback<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable, M3: Cuckoo.Matchable>(item: M1, feedback: M2, onSuccess: M3) -> Cuckoo.__DoNotUse<Void> where M1.MatchedType == ItemModel, M2.MatchedType == String, M3.MatchedType == () -> () {
             let matchers: [Cuckoo.ParameterMatcher<(ItemModel, String, () -> ())>] = [wrap(matchable: item) { $0.0 }, wrap(matchable: feedback) { $0.1 }, wrap(matchable: onSuccess) { $0.2 }]
             return manager.verify("addFeedback(item: ItemModel, feedback: String, onSuccess: @escaping () -> ())", callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
@@ -115,10 +102,6 @@ class FeedbackViewModelStub: FeedbackViewModel {
     
     override func getItems(onLoadedAllItems: @escaping ([ItemModel]) -> ()) {
         return DefaultValueRegistry.defaultValue(for: (Void).self)
-    }
-    
-    override func getName() -> String {
-        return DefaultValueRegistry.defaultValue(for: (String).self)
     }
     
     override func addFeedback(item: ItemModel, feedback: String, onSuccess: @escaping () -> ()) {

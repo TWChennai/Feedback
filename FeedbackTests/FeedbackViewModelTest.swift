@@ -9,14 +9,6 @@ import OHHTTPStubs
 class FeedbackViewModelTests: QuickSpec {
     override func spec() {
         describe("In feedback view model") {
-            context("Get feedback") {
-                it("should return model name") {
-                    let feedbackViewModel = FeedbackViewModel()
-                    
-                    expect(feedbackViewModel.getName()).to(equal("Feedback123"))
-                }
-            }
-            
             context("Get items") {
                 it("should return items") {
                     var called = false

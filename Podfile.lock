@@ -26,6 +26,7 @@ PODS:
   - SDWebImage (4.0.0):
     - SDWebImage/Core (= 4.0.0)
   - SDWebImage/Core (4.0.0)
+  - SwiftMonkey (1.0.0)
   - SwiftyJSON (3.1.4)
   - Toast-Swift (2.0.0)
 
@@ -39,6 +40,7 @@ DEPENDENCIES:
   - OHHTTPStubs/Swift
   - Quick
   - SDWebImage (~> 4.0.0)
+  - SwiftMonkey
   - SwiftyJSON
   - Toast-Swift (~> 2.0.0)
 
@@ -52,9 +54,10 @@ SPEC CHECKSUMS:
   OHHTTPStubs: e238cd5b66d8efa51c861db45895de8fe079f4a7
   Quick: dafc587e21eed9f4cab3249b9f9015b0b7a7f71d
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
+  SwiftMonkey: dc5681bf881dd84efcc7ff684a31582d5ac67232
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   Toast-Swift: 5b2f8f720f7e78e48511f693df1f9c9a6e38a25a
 
-PODFILE CHECKSUM: 3372478a8f5e3fed20ad716afc1a8a35fce2a988
+PODFILE CHECKSUM: 4fcc58100f7fc35b4dfbd0a40a97d3e915ac6a1c
 
 COCOAPODS: 1.2.0

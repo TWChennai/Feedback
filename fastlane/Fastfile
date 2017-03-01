@@ -36,6 +36,14 @@ lane :test do
     )  
 end
 
+desc "Runs monkey tests"
+lane :monkeyTest do
+    scan({
+    scheme: "FeedbackMonkeyTest",
+    device: "iPhone 6s"
+    })
+end
+
 desc "Setup"
 lane :setup do
  # No specific command

@@ -26,19 +26,8 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES"
-      codeCoverageEnabled = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "16E84A7F1E55A959002B4245"
-               BuildableName = "FeedbackTests.xctest"
-               BlueprintName = "FeedbackTests"
-               ReferencedContainer = "container:Feedback.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
          <TestableReference
             skipped = "NO">
             <BuildableReference
@@ -50,7 +39,10 @@
             </BuildableReference>
             <SkippedTests>
                <Test
-                  Identifier = "MonkeyTests">
+                  Identifier = "BaseTest">
+               </Test>
+               <Test
+                  Identifier = "FeedbackUITests">
                </Test>
             </SkippedTests>
          </TestableReference>
@@ -87,18 +79,6 @@
             ReferencedContainer = "container:Feedback.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <EnvironmentVariables>
-         <EnvironmentVariable
-            key = "FEEDBACK_BACKEND_URL"
-            value = "http://54.255.184.116:3050"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-         <EnvironmentVariable
-            key = "S3_URL"
-            value = "https://s3.amazonaws.com/recruitx-feedback-image-qa/uploads/"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-      </EnvironmentVariables>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

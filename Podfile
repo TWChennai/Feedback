@@ -25,6 +25,7 @@ target 'Feedback' do
 
   target 'FeedbackUITests' do
     inherit! :search_paths
+    pod 'SwiftMonkey'
   end
 
 end

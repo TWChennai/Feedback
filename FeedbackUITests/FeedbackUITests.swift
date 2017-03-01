@@ -1,36 +1,21 @@
 import XCTest
 import Foundation
 
-extension XCUIApplication {
-    func launchTestsWithEnvironmentVariables() {
-        launchEnvironment = [
-            "FEEDBACK_BACKEND_URL" : "http://54.255.184.116:3050",
-            "S3_URL": "https://s3.amazonaws.com/recruitx-feedback-image-qa/uploads/"
-        ]
-        self.launch()
-    }
-}
-
-class FeedbackUITests: XCTestCase {
+class FeedbackUITests: BaseTest {
     
-    var app : XCUIApplication? = nil
-
-    override func setUp() {
-        super.setUp()
-        continueAfterFailure = false
-        app = XCUIApplication()
-        app?.launchTestsWithEnvironmentVariables()
-    }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
+    let menuItem="Curd"
+    let menuImageName="curd"
+    let feedbackType="watery"
+    let expectedFeedbackLists=["good","sour","watery"]
     
     func testExample() {
-        let cells = app?.collectionViews.cells;
-        sleep(5) // fix it
-        let cellTwo = cells?.element(boundBy: 1)
-        XCTAssertEqual(cells?.count,3)
-        XCTAssertNotNil(cellTwo?.tap())
+        feedbackPage.verifyFeedbackLogo()
+        feedbackPage.selectFoodMenuList(menuName: menuItem)
+        feedbackPage.verifyNumberOfFoodMenuDisplayed(numberOfFoodMenu: 4)
+        feedbackPage.verifySelectedMenuItem(menuName: menuImageName, numberOfFeedbackList: 3,expectedFeedbackLists: expectedFeedbackLists)
+        feedbackPage.submitFeedback(feedbackType: feedbackType)
+        feedbackPage.verifyFeedbackSubmittedSuccessfully()
+        
     }
+    
 }

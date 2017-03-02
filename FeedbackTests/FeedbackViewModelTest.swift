@@ -30,6 +30,36 @@ class FeedbackViewModelTests: QuickSpec {
                 }
             }
             
+            context("Submit feedback") {
+                it("should call the callback on success") {
+                    var callbackCalled = false
+                    let feedbackViewModel = FeedbackViewModel()
+                    let item: ItemModel = ItemModel()
+                    item.name = "test"
+                    
+                    stub(condition: isHost("54.255.184.116")) { _ in
+                        return OHHTTPStubsResponse(jsonObject: [:], statusCode: 200, headers: [ "Content-Type": "application/json" ])
+                    }
+                    
+                    feedbackViewModel.addFeedback(item: item, feedback: "", onSuccess: {_ in callbackCalled = true})
+                    
+                    expect(callbackCalled).toEventually(equal(true))
+                }
+                it("should not call the callback if the submission fails") {
+                    var callbackCalled = false
+                    let feedbackViewModel = FeedbackViewModel()
+                    let item: ItemModel = ItemModel()
+                    item.name = "test"
+                    
+                    stub(condition: isHost("54.255.184.116")) { _ in
+                        return OHHTTPStubsResponse(jsonObject: [:], statusCode: 400, headers: [ "Content-Type": "application/json" ])
+                    }
+                    
+                    feedbackViewModel.addFeedback(item: item, feedback: "", onSuccess: {_ in callbackCalled = true})
+                    
+                    expect(callbackCalled).toEventually(equal(false))
+                }
+            }
         }
     }
 }

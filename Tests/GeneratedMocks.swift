@@ -37,10 +37,6 @@ class MockFeedbackViewModel: FeedbackViewModel, Cuckoo.Mock {
             self.manager = manager
         }
         
-        var model: Cuckoo.ToBeStubbedProperty<FeedbackModel> {
-            return Cuckoo.ToBeStubbedProperty(manager: manager, name: "model")
-        }
-        
         func getItems<M1: Cuckoo.Matchable>(onLoadedAllItems: M1) -> Cuckoo.StubNoReturnFunction<(([ItemModel]) -> ())> where M1.MatchedType == ([ItemModel]) -> () {
             let matchers: [Cuckoo.ParameterMatcher<(([ItemModel]) -> ())>] = [wrap(matchable: onLoadedAllItems) { $0 }]
             return Cuckoo.StubNoReturnFunction(stub: manager.createStub("getItems(onLoadedAllItems: @escaping ([ItemModel]) -> ())", parameterMatchers: matchers))
@@ -61,10 +57,6 @@ class MockFeedbackViewModel: FeedbackViewModel, Cuckoo.Mock {
             self.manager = manager
             self.callMatcher = callMatcher
             self.sourceLocation = sourceLocation
-        }
-        
-        var model: Cuckoo.VerifyProperty<FeedbackModel> {
-            return Cuckoo.VerifyProperty(manager: manager, name: "model", callMatcher: callMatcher, sourceLocation: sourceLocation)
         }
         
         @discardableResult

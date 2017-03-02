@@ -8,13 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		1675B2781E5C81C70049A719 /* MGSwipeTableCell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1675B2771E5C81C70049A719 /* MGSwipeTableCell.framework */; };
-		1698AB5D1E5B203E00A810C9 /* TestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1698AB5C1E5B203E00A810C9 /* TestExtensions.swift */; };
 		16E84A721E55A959002B4245 /* FeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E84A711E55A959002B4245 /* FeedbackView.swift */; };
 		16E84A751E55A959002B4245 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16E84A731E55A959002B4245 /* Main.storyboard */; };
 		16E84A771E55A959002B4245 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16E84A761E55A959002B4245 /* Assets.xcassets */; };
 		16E84A7A1E55A959002B4245 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16E84A781E55A959002B4245 /* LaunchScreen.storyboard */; };
 		16E84A901E55A959002B4245 /* FeedbackUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E84A8F1E55A959002B4245 /* FeedbackUITests.swift */; };
-		16E84AB81E55E055002B4245 /* FeedbackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E84AB71E55E055002B4245 /* FeedbackModel.swift */; };
 		34B8583DC8DD89FF043BF124 /* Pods_FeedbackTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3587EB057F8677CEEE0700A /* Pods_FeedbackTests.framework */; };
 		45B7D8A21E5DA9FA00E42170 /* AllFeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B7D8A11E5DA9FA00E42170 /* AllFeedbackView.swift */; };
 		45D34EFC1E5AEE9300E3D762 /* splash.png in Resources */ = {isa = PBXBuildFile; fileRef = 45D34EFB1E5AEE9300E3D762 /* splash.png */; };
@@ -58,7 +56,6 @@
 		0412395612C50240083B821E /* Pods-Feedback.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Feedback.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Feedback/Pods-Feedback.debug.xcconfig"; sourceTree = "<group>"; };
 		1675B2741E5C80290049A719 /* Feedback-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Feedback-Bridging-Header.h"; sourceTree = "<group>"; };
 		1675B2771E5C81C70049A719 /* MGSwipeTableCell.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MGSwipeTableCell.framework; path = "../../../Library/Developer/Xcode/DerivedData/Feedback-ahtqxgyntscqqufnrhouzbbpgkxo/Build/Products/Debug-iphonesimulator/MGSwipeTableCell/MGSwipeTableCell.framework"; sourceTree = "<group>"; };
-		1698AB5C1E5B203E00A810C9 /* TestExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestExtensions.swift; sourceTree = "<group>"; };
 		16E84A6C1E55A959002B4245 /* Feedback.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Feedback.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16E84A711E55A959002B4245 /* FeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackView.swift; sourceTree = "<group>"; };
 		16E84A741E55A959002B4245 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -70,7 +67,6 @@
 		16E84A8B1E55A959002B4245 /* FeedbackUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FeedbackUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		16E84A8F1E55A959002B4245 /* FeedbackUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackUITests.swift; sourceTree = "<group>"; };
 		16E84A911E55A959002B4245 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		16E84AB71E55E055002B4245 /* FeedbackModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackModel.swift; sourceTree = "<group>"; };
 		45B7D8A11E5DA9FA00E42170 /* AllFeedbackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllFeedbackView.swift; sourceTree = "<group>"; };
 		45D34EFB1E5AEE9300E3D762 /* splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash.png; sourceTree = "<group>"; };
 		4CCA64511E66CB9C0011C8BC /* BaseTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTest.swift; sourceTree = "<group>"; };
@@ -171,7 +167,6 @@
 				5B0A036A1E66CF0100B429EA /* GeneratedMocks.swift */,
 				16E84A861E55A959002B4245 /* Info.plist */,
 				7BF550AA1E571AD300E8AB63 /* FeedbackViewTests.swift */,
-				1698AB5C1E5B203E00A810C9 /* TestExtensions.swift */,
 				7BC17AB51E5D551100804961 /* ItemModelTest.swift */,
 				7BA5FA341E5DA621002E52E1 /* FeedbackViewModelTest.swift */,
 			);
@@ -213,7 +208,6 @@
 		16E84AB61E55E039002B4245 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				16E84AB71E55E055002B4245 /* FeedbackModel.swift */,
 				7BC17AB31E5C462D00804961 /* ItemModel.swift */,
 			);
 			name = Model;
@@ -564,7 +558,6 @@
 			files = (
 				5B5279041E5D8155001CB322 /* AppDelegate.swift in Sources */,
 				7BC17AB41E5C462D00804961 /* ItemModel.swift in Sources */,
-				16E84AB81E55E055002B4245 /* FeedbackModel.swift in Sources */,
 				45B7D8A21E5DA9FA00E42170 /* AllFeedbackView.swift in Sources */,
 				5BB5859D1E5C299000C0404B /* ItemCellView.swift in Sources */,
 				5B5279021E5D7DDD001CB322 /* FeedbackViewModel.swift in Sources */,
@@ -579,7 +572,6 @@
 			files = (
 				7BC17AB61E5D551100804961 /* ItemModelTest.swift in Sources */,
 				7BF550AB1E571AD300E8AB63 /* FeedbackViewTests.swift in Sources */,
-				1698AB5D1E5B203E00A810C9 /* TestExtensions.swift in Sources */,
 				7BA5FA351E5DA621002E52E1 /* FeedbackViewModelTest.swift in Sources */,
 				5B0A036B1E66CF0100B429EA /* GeneratedMocks.swift in Sources */,
 			);

@@ -11,7 +11,7 @@ class FeedbackViewTests: QuickSpec {
         describe("In feedback view") {
             context("view did load") {
                 it("should get data from view model") {
-                    let feedbackView = FeedbackView()
+                    let feedbackView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "feedbackView") as! FeedbackView
                     let viewmodel = MockFeedbackViewModel()
                     feedbackView.viewModel = viewmodel
                     
@@ -19,7 +19,7 @@ class FeedbackViewTests: QuickSpec {
                         when(viewmodel.getItems(onLoadedAllItems: anyClosure())).thenDoNothing()
                     }
                     
-                    feedbackView.viewDidLoad()
+                    _ = feedbackView.view
                     
                     verify(viewmodel).getItems(onLoadedAllItems: anyClosure())
                     

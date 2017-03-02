@@ -16,7 +16,7 @@ class FeedbackView: UIViewController, UICollectionViewDataSource, UICollectionVi
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.getItems(onLoadedAllItems: onLoadedAllItems)
-//        predefinedFeedback.tableFooterView = UIView()
+        predefinedFeedback.tableFooterView = UIView()
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

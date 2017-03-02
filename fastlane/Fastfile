@@ -27,13 +27,18 @@ lane :test do
     scheme: "Feedback",
     device: "iPhone 6s"
     })
+   
+    coverage()
+end
 
+desc "Runs coverage"
+lane :coverage do
     xcov(
     workspace: "Feedback.xcworkspace",
     scheme: "Feedback",
     output_directory: "xcov_output",
     minimum_coverage_percentage: 40.0
-    )  
+    )
 end
 
 desc "Runs monkey tests"

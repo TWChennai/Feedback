@@ -10,7 +10,7 @@ class FeedbackUITests: BaseTest {
     
     func testExample() {
         feedbackPage.selectFoodMenuList(menuName: menuItem)
-        feedbackPage.verifyNumberOfFoodMenuDisplayed(numberOfFoodMenu: 4)
+        feedbackPage.verifyNumberOfFoodMenuDisplayed(numberOfFoodMenu: 3)
         feedbackPage.verifySelectedMenuItem(menuName: menuImageName, numberOfFeedbackList: 3,expectedFeedbackLists: expectedFeedbackLists)
         feedbackPage.submitFeedback(feedbackType: feedbackType)
         feedbackPage.verifyFeedbackSubmittedSuccessfully()

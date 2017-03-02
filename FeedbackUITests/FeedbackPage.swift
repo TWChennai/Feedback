@@ -21,7 +21,9 @@ public class FeedbackPage:BasePage
     
     func selectFoodMenuList(menuName: String)
     {
-        XCTestCase().waitForElementToAppear(element: foodMenuLists.element(boundBy: 1))
+        let firstFoodItem=foodMenuLists.element(boundBy: 1)
+        XCTestCase().waitForElementToAppear(element: firstFoodItem)
+        firstFoodItem.swipeLeft()
         foodMenuLists.containing(.staticText, identifier:menuName).element.tap()
         
     }

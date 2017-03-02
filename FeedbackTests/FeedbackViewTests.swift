@@ -57,7 +57,7 @@ class FeedbackViewTests: QuickSpec {
                     feedbackView.items = [itemOne]
                     feedbackView.collectionView(feedbackView.collectionView, didSelectItemAt: IndexPath(row: 0, section: 0))
                     
-                    expect(feedbackView.currentItem == itemOne).to(beTruthy())
+                    expect(feedbackView.currentItem) == itemOne
                 }
                 
                 it("onLoadedAllItems should set the feedback view's items") {
@@ -77,8 +77,8 @@ class FeedbackViewTests: QuickSpec {
                     feedbackView.onLoadedAllItems(items: [expectedItemOne, expectedItemTwo])
                     
                     let itemTwo = feedbackView.items[1]
-                    expect(itemTwo == expectedItemTwo).to(beTruthy())
-                    expect(feedbackView.currentItem == expectedItemOne).to(beTruthy())
+                    expect(itemTwo) == expectedItemTwo
+                    expect(feedbackView.currentItem) == expectedItemOne
                 }
             }
         }

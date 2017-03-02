@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -99,39 +98,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-599.20000000000005" y="126.38680659670166"/>
-        </scene>
-        <!--All Feedback View-->
-        <scene sceneID="Qci-Do-KIA">
-            <objects>
-                <viewController id="FqC-9z-OIc" customClass="AllFeedbackView" customModule="Feedback" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="feN-xp-3dU"/>
-                        <viewControllerLayoutGuide type="bottom" id="dyB-ht-qFi"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="7eQ-Jj-73b">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7Kl-d4-bO0">
-                                <rect key="frame" x="16" y="20" width="343" height="647"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="dyB-ht-qFi" firstAttribute="top" secondItem="7Kl-d4-bO0" secondAttribute="bottom" id="2GG-ZZ-HvU"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="7Kl-d4-bO0" secondAttribute="trailing" id="3Au-VE-hOJ"/>
-                            <constraint firstItem="7Kl-d4-bO0" firstAttribute="leading" secondItem="7eQ-Jj-73b" secondAttribute="leadingMargin" id="GGK-1n-FHi"/>
-                            <constraint firstItem="7Kl-d4-bO0" firstAttribute="top" secondItem="feN-xp-3dU" secondAttribute="bottom" id="zue-US-7c6"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="feedbackTable" destination="7Kl-d4-bO0" id="5RR-vv-xX1"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pq4-2W-LET" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="189.59999999999999" y="129.98500749625188"/>
         </scene>
     </scenes>
 </document>

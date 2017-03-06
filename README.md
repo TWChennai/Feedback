@@ -6,6 +6,7 @@ Feedback iOS app for food
 
 # Setup
 * bundle install
+* npm install
 * fastlane setup
 
 # Steps to run tests

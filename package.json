@@ -1,0 +1,8 @@
+{
+  "name": "feedback",
+  "version": "1.0.0",
+  "description": "Feedback iOS app for food",
+  "dependencies": {
+    "mountebank": "^1.9.0"
+  }
+}

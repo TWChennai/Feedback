@@ -1,0 +1,32 @@
+{
+  "port": 3050,
+  "protocol": "http",
+  "name": "Stub feedback server",
+  "stubs": [
+    {
+      "predicates": [
+        {
+          "equals": {
+            "method": "GET",
+            "path": "/items",
+            "query": {
+              "categoryId": "57b048b0-2002-41f3-908f-103faba36e96"
+            }
+          }
+        }
+      ],
+      "responses": <% include items.json %>
+    },
+    {
+      "predicates": [
+        {
+          "equals": {
+            "method": "GET",
+            "path": "/item/2"
+          }
+        }
+      ],
+      "responses": <% include item_2.json %>
+    }
+  ]
+}

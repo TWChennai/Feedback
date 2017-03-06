@@ -48,3 +48,8 @@ build
 /*.gcno
 xcov_output/
 .DS_Store
+
+##Mountebank
+mb*.log
+mb.pid
+node_modules

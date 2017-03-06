@@ -1,0 +1,24 @@
+[
+  {
+    "is": {
+      "statusCode": 200,
+      "headers": {
+         "Content-Type": "application/json"
+       },
+      "body": [
+  	   {
+ 	      "_id":"1",
+  	    "type":"Curd",
+  	    "categoryId":"57b048b0-2002-41f3-908f-103faba36e96",
+  	    "feedback":["good","sour","watery"]
+  	   },
+       {
+        "_id":"2",
+        "type":"Rice",
+        "categoryId":"57b048b0-2002-41f3-908f-103faba36e96",
+        "feedback":["good","uncooked"]
+       }
+      ]
+    }
+  }
+]

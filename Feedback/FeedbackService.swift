@@ -3,7 +3,7 @@ import Alamofire
 import SwiftyJSON
 import AlamofireObjectMapper
 
-class FeedbackViewModel {
+class FeedbackService {
     
     func getItems(onLoadedAllItems: @escaping ([ItemModel]) -> ()){
         let url = ProcessInfo.processInfo.environment["FEEDBACK_BACKEND_URL"]

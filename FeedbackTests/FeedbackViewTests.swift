@@ -12,7 +12,7 @@ class FeedbackViewTests: QuickSpec {
             let feedbackView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "feedbackView") as! FeedbackView
             context("view did load") {
                 it("should get data from view model") {
-                    let viewmodel = MockFeedbackViewModel()
+                    let viewmodel = MockFeedbackService()
                     feedbackView.viewModel = viewmodel
                     
                     stub(viewmodel) { viewmodel in

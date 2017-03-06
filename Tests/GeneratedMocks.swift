@@ -1,4 +1,4 @@
-// MARK: - Mocks generated from file: Feedback/FeedbackViewModel.swift at 2017-03-01 14:31:12 +0000
+// MARK: - Mocks generated from file: Feedback/FeedbackService.swift at 2017-03-01 14:31:12 +0000
 
 
 import Cuckoo
@@ -9,15 +9,15 @@ import AlamofireObjectMapper
 import Foundation
 import SwiftyJSON
 
-class MockFeedbackViewModel: FeedbackViewModel, Cuckoo.Mock {
-    typealias MocksType = FeedbackViewModel
-    typealias Stubbing = __StubbingProxy_FeedbackViewModel
-    typealias Verification = __VerificationProxy_FeedbackViewModel
+class MockFeedbackService: FeedbackService, Cuckoo.Mock {
+    typealias MocksType = FeedbackService
+    typealias Stubbing = __StubbingProxy_FeedbackService
+    typealias Verification = __VerificationProxy_FeedbackService
     let manager = Cuckoo.MockManager()
     
-    private var observed: FeedbackViewModel?
+    private var observed: FeedbackService?
     
-    func spy(on victim: FeedbackViewModel) -> Self {
+    func spy(on victim: FeedbackService) -> Self {
         observed = victim
         return self
     }
@@ -30,7 +30,7 @@ class MockFeedbackViewModel: FeedbackViewModel, Cuckoo.Mock {
         return manager.call("addFeedback(item: ItemModel, feedback: String, onSuccess: @escaping () -> ())", parameters: (item, feedback, onSuccess), original: observed.map { o in return { (item: ItemModel, feedback: String, onSuccess: @escaping () -> ()) in o.addFeedback(item: item, feedback: feedback, onSuccess: onSuccess) } })
     }
     
-    struct __StubbingProxy_FeedbackViewModel: Cuckoo.StubbingProxy {
+    struct __StubbingProxy_FeedbackService: Cuckoo.StubbingProxy {
         private let manager: Cuckoo.MockManager
         
         init(manager: Cuckoo.MockManager) {
@@ -48,7 +48,7 @@ class MockFeedbackViewModel: FeedbackViewModel, Cuckoo.Mock {
         }
     }
     
-    struct __VerificationProxy_FeedbackViewModel: Cuckoo.VerificationProxy {
+    struct __VerificationProxy_FeedbackService: Cuckoo.VerificationProxy {
         private let manager: Cuckoo.MockManager
         private let callMatcher: Cuckoo.CallMatcher
         private let sourceLocation: Cuckoo.SourceLocation
@@ -73,7 +73,7 @@ class MockFeedbackViewModel: FeedbackViewModel, Cuckoo.Mock {
     }
 }
 
-class FeedbackViewModelStub: FeedbackViewModel {
+class FeedbackServiceStub: FeedbackService {
     
     override func getItems(onLoadedAllItems: @escaping ([ItemModel]) -> ()) {
         return DefaultValueRegistry.defaultValue(for: (Void).self)

@@ -37,20 +37,20 @@ class CaptureFeedbackViewTests: QuickSpec {
                 
                 it("should have count same as number of predefined feedback") {
                     let row = 0
-                    let mockFeedbackViewModel = MockFeedbackViewModel()
-                    feedbackView.viewModel = mockFeedbackViewModel
+                    let mockFeedbackService = MockFeedbackService()
+                    feedbackView.viewModel = mockFeedbackService
                     let item = ItemModel()
                     item.predefinedFeedbacks = ["one", "two", "three"]
                     feedbackView.currentItem = item
                     _ = feedbackView.view
 
-                    stub(mockFeedbackViewModel) { viewmodel in
+                    stub(mockFeedbackService) { viewmodel in
                         when(viewmodel.addFeedback(item: any(), feedback: any(), onSuccess: anyClosure())).thenDoNothing()
                     }
 
                     feedbackView.tableView(feedbackView.predefinedFeedback, didHighlightRowAt: IndexPath(row: row, section: 0))
 
-                    verify(mockFeedbackViewModel).addFeedback(item: any(), feedback: any(), onSuccess: anyClosure())
+                    verify(mockFeedbackService).addFeedback(item: any(), feedback: any(), onSuccess: anyClosure())
                 }
             }
         }

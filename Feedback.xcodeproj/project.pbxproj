@@ -24,7 +24,7 @@
 		5B0A036E1E67416400B429EA /* CaptureFeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0A036D1E67416400B429EA /* CaptureFeedbackView.swift */; };
 		5B1609251E683A64003750B1 /* ItemModelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1609241E683A64003750B1 /* ItemModelExtension.swift */; };
 		5B1609271E683DD2003750B1 /* CaptureFeedbackViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1609261E683DD2003750B1 /* CaptureFeedbackViewTest.swift */; };
-		5B5279021E5D7DDD001CB322 /* FeedbackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5279011E5D7DDD001CB322 /* FeedbackViewModel.swift */; };
+		5B5279021E5D7DDD001CB322 /* FeedbackService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5279011E5D7DDD001CB322 /* FeedbackService.swift */; };
 		5B5279041E5D8155001CB322 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5279031E5D8155001CB322 /* AppDelegate.swift */; };
 		5B5279061E5EB8DC001CB322 /* feedback.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 5B5279051E5EB8DC001CB322 /* feedback.jpeg */; };
 		5BB5859D1E5C299000C0404B /* ItemCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB5859C1E5C299000C0404B /* ItemCellView.swift */; };
@@ -78,7 +78,7 @@
 		5B0A036D1E67416400B429EA /* CaptureFeedbackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureFeedbackView.swift; sourceTree = "<group>"; };
 		5B1609241E683A64003750B1 /* ItemModelExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemModelExtension.swift; sourceTree = "<group>"; };
 		5B1609261E683DD2003750B1 /* CaptureFeedbackViewTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureFeedbackViewTest.swift; sourceTree = "<group>"; };
-		5B5279011E5D7DDD001CB322 /* FeedbackViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewModel.swift; sourceTree = "<group>"; };
+		5B5279011E5D7DDD001CB322 /* FeedbackService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackService.swift; sourceTree = "<group>"; };
 		5B5279031E5D8155001CB322 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B5279051E5EB8DC001CB322 /* feedback.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = feedback.jpeg; sourceTree = "<group>"; };
 		5BB5859C1E5C299000C0404B /* ItemCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCellView.swift; sourceTree = "<group>"; };
@@ -151,7 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				5B5279031E5D8155001CB322 /* AppDelegate.swift */,
-				5B5279001E5D7D55001CB322 /* ViewModel */,
+				5B5279001E5D7D55001CB322 /* Service */,
 				16E84AB61E55E039002B4245 /* Model */,
 				16E84AAC1E55DA13002B4245 /* View */,
 				16E84AA81E55D573002B4245 /* Resources */,
@@ -243,12 +243,12 @@
 			name = MonkeyTests;
 			sourceTree = "<group>";
 		};
-		5B5279001E5D7D55001CB322 /* ViewModel */ = {
+		5B5279001E5D7D55001CB322 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				5B5279011E5D7DDD001CB322 /* FeedbackViewModel.swift */,
+				5B5279011E5D7DDD001CB322 /* FeedbackService.swift */,
 			);
-			name = ViewModel;
+			name = Service;
 			sourceTree = "<group>";
 		};
 		AC6EE2EB7AD5D98C04D995D2 /* Pods */ = {
@@ -562,7 +562,7 @@
 				5B5279041E5D8155001CB322 /* AppDelegate.swift in Sources */,
 				7BC17AB41E5C462D00804961 /* ItemModel.swift in Sources */,
 				5BB5859D1E5C299000C0404B /* ItemCellView.swift in Sources */,
-				5B5279021E5D7DDD001CB322 /* FeedbackViewModel.swift in Sources */,
+				5B5279021E5D7DDD001CB322 /* FeedbackService.swift in Sources */,
 				5B0A036E1E67416400B429EA /* CaptureFeedbackView.swift in Sources */,
 				16E84A721E55A959002B4245 /* FeedbackView.swift in Sources */,
 			);

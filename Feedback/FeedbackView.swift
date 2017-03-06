@@ -2,7 +2,7 @@ import UIKit
 import SDWebImage
 
 class FeedbackView: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
-    var viewModel: FeedbackViewModel =  FeedbackViewModel()
+    var viewModel: FeedbackService =  FeedbackService()
     var items: Array<ItemModel> = []
     var currentItem: ItemModel = ItemModel()
     let S3_URL: String = ProcessInfo.processInfo.environment["S3_URL"]!

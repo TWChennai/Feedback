@@ -24,7 +24,7 @@ class FeedbackServiceTests: QuickSpec {
                     }
                     expect(self.items.count).to(equal(0))
                     
-                    FeedbackService.getItems(onLoadedAllItems: callback)
+                    feedbackService.getItems(onLoadedAllItems: callback)
                     
                     expect(self.items.count).toEventually(equal(2))
                 }
@@ -55,7 +55,7 @@ class FeedbackServiceTests: QuickSpec {
                         return OHHTTPStubsResponse(jsonObject: [:], statusCode: 400, headers: [ "Content-Type": "application/json" ])
                     }
                     
-                    FeedbackService.addFeedback(item: item, feedback: "", onSuccess: {_ in callbackCalled = true})
+                    feedbackService.addFeedback(item: item, feedback: "", onSuccess: {_ in callbackCalled = true})
                     
                     expect(callbackCalled).toEventually(equal(false))
                 }

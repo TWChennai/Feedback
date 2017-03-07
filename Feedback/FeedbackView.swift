@@ -6,6 +6,7 @@ class FeedbackView: UIViewController, UICollectionViewDataSource, UICollectionVi
     var items: Array<ItemModel> = []
     var currentItem: ItemModel = ItemModel()
     let S3_URL: String = ProcessInfo.processInfo.environment["S3_URL"]!
+    let SIDE_MENU_HIDE_ORIGIN: CGFloat = -185
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -13,6 +14,23 @@ class FeedbackView: UIViewController, UICollectionViewDataSource, UICollectionVi
     
     @IBOutlet weak var predefinedFeedback: UITableView!
     
+    @IBOutlet weak var leadingConstraint: NSLayoutConstraint!
+    
+    @IBAction func showFoodCategories(_ sender: Any) {
+        leadingConstraint.constant = SIDE_MENU_HIDE_ORIGIN
+        self.performSegue(withIdentifier: "categories", sender: self)
+    }
+    
+    @IBAction func showSideMenu(_ sender: UISwipeGestureRecognizer) {
+        self.leadingConstraint.constant = 0
+        UIView.animate(withDuration: 0.5, animations: {self.view.layoutIfNeeded()})
+    }
+    
+    @IBAction func hideSideMenu(_ sender: UISwipeGestureRecognizer) {
+        leadingConstraint.constant = SIDE_MENU_HIDE_ORIGIN
+        UIView.animate(withDuration: 0.5, animations: {self.view.layoutIfNeeded()})
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.getItems(onLoadedAllItems: onLoadedAllItems)

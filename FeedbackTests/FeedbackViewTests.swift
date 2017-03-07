@@ -5,6 +5,25 @@ import Cuckoo
 
 @testable import Feedback
 
+extension FeedbackView {
+    private struct CustomPropertyStruct {
+        static var segueCalled: Bool?
+    }
+
+    var segueCalled: Bool! {
+        get {
+            return CustomPropertyStruct.segueCalled
+        }
+        set {
+            CustomPropertyStruct.segueCalled = newValue
+        }
+    }
+
+    override open func performSegue(withIdentifier identifier: String, sender: Any?) {
+        segueCalled = true
+    }
+}
+
 class FeedbackViewTests: QuickSpec {
     
     override func spec() {
@@ -79,6 +98,26 @@ class FeedbackViewTests: QuickSpec {
                     let itemTwo = feedbackView.items[1]
                     expect(itemTwo) == expectedItemTwo
                     expect(feedbackView.currentItem) == expectedItemOne
+                }
+            }
+
+            context("side menu") {
+                it("should show/hide side menu") {
+                    expect(feedbackView.leadingConstraint.constant) == feedbackView.SIDE_MENU_HIDE_ORIGIN
+                    feedbackView.showSideMenu(UISwipeGestureRecognizer())
+                    expect(feedbackView.leadingConstraint.constant) == 0
+
+                    feedbackView.hideSideMenu(UISwipeGestureRecognizer())
+                    expect(feedbackView.leadingConstraint.constant) == feedbackView.SIDE_MENU_HIDE_ORIGIN
+                }
+
+                it("navigate to categories page") {
+                    feedbackView.showSideMenu(UISwipeGestureRecognizer())
+
+                    feedbackView.showFoodCategories(feedbackView)
+
+                    expect(feedbackView.leadingConstraint.constant) == feedbackView.SIDE_MENU_HIDE_ORIGIN
+                    expect(feedbackView.segueCalled).to(beTrue())
                 }
             }
         }

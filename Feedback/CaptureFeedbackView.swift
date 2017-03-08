@@ -15,7 +15,9 @@ extension FeedbackView: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
         let feedback = currentItem.predefinedFeedbacks[indexPath.row]
-        viewModel.addFeedback(item: currentItem, feedback: feedback, onSuccess: successfullySubmitted)
+        viewModel.addFeedback(item: currentItem, feedback: feedback).startWithCompleted {
+            self.view.makeToast("Feedback submitted", duration: TimeInterval.abs(1), position: ToastPosition.bottom)
+        }
     }
     
     func reloadFeedbackCaptureView(item: ItemModel) {
@@ -26,8 +28,4 @@ extension FeedbackView: UITableViewDataSource, UITableViewDelegate {
         predefinedFeedback.reloadData()
     }
     
-    func successfullySubmitted() {
-        self.view.makeToast("Feedback submitted", duration: TimeInterval.abs(1), position: ToastPosition.bottom)
-    }
-
 }

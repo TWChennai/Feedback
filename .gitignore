@@ -53,3 +53,6 @@ xcov_output/
 mb*.log
 mb.pid
 node_modules
+
+## idea
+.idea/

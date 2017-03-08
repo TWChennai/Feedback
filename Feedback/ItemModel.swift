@@ -6,6 +6,11 @@ class ItemModel: Mappable {
     var predefinedFeedbacks: Array<String> = []
 
     required init?(map: Map){
+        
+    }
+    
+    init(name: String) {
+        self.name = name
     }
     
     init() {

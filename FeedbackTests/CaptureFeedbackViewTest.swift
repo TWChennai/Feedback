@@ -2,15 +2,21 @@ import Foundation
 import Quick
 import Nimble
 import Cuckoo
+import ReactiveSwift
+import enum Result.NoError
 
 @testable import Feedback
 
 class CaptureFeedbackViewTests: QuickSpec {
 
     override func spec() {
+        
         describe("In feedback view") {
+            
             let feedbackView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "feedbackView") as! FeedbackView
+            
             context("table view") {
+                
                 it("should have count same as number of predefined feedback") {
                     _ = feedbackView.view
                     let item = ItemModel()
@@ -45,12 +51,17 @@ class CaptureFeedbackViewTests: QuickSpec {
                     _ = feedbackView.view
 
                     stub(mockFeedbackService) { viewmodel in
-                        when(viewmodel.addFeedback(item: any(), feedback: any(), onSuccess: anyClosure())).thenDoNothing()
+                        when(viewmodel.addFeedback(item: any(), feedback: any())).then({ (ItemModel,String) -> SignalProducer<(), NoError> in
+                            return SignalProducer<(), NoError> { sink, disposable in
+                                 sink.sendCompleted()
+                            }
+                        })
                     }
 
                     feedbackView.tableView(feedbackView.predefinedFeedback, didHighlightRowAt: IndexPath(row: row, section: 0))
 
-                    verify(mockFeedbackService).addFeedback(item: any(), feedback: any(), onSuccess: anyClosure())
+
+                    verify(mockFeedbackService).addFeedback(item: any(), feedback: any())
                 }
             }
         }

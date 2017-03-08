@@ -1,9 +1,14 @@
 import UIKit
 import SDWebImage
+import ReactiveCocoa
+import ReactiveSwift
+import enum Result.NoError
 
 class FeedbackView: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     var viewModel: FeedbackService =  FeedbackService()
+
     var items: Array<ItemModel> = []
+    var counts: SignalProducer<[ItemModel], NoError> = SignalProducer.empty
     var currentItem: ItemModel = ItemModel()
     let S3_URL: String = ProcessInfo.processInfo.environment["S3_URL"]!
     let SIDE_MENU_HIDE_ORIGIN: CGFloat = -185
@@ -11,6 +16,7 @@ class FeedbackView: UIViewController, UICollectionViewDataSource, UICollectionVi
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var itemImage: UIImageView!
+    @IBOutlet weak var countLabel: UILabel!
     
     @IBOutlet weak var predefinedFeedback: UITableView!
     
@@ -33,10 +39,16 @@ class FeedbackView: UIViewController, UICollectionViewDataSource, UICollectionVi
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.getItems(onLoadedAllItems: onLoadedAllItems)
+        
+        viewModel.getItems().startWithValues({(data:[ItemModel]) -> Void in
+            self.items = data
+            self.collectionView.reloadData()
+            self.reloadFeedbackCaptureView(item: self.items[0])
+        })
+        
         predefinedFeedback.tableFooterView = UIView()
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return items.count
     }
@@ -53,10 +65,5 @@ class FeedbackView: UIViewController, UICollectionViewDataSource, UICollectionVi
         reloadFeedbackCaptureView(item: items[indexPath.row])
     }
     
-    func onLoadedAllItems(items: [ItemModel]) {
-        self.items = items
-        collectionView.reloadData()
-        reloadFeedbackCaptureView(item: items[0])
-    }
 }
-       
+

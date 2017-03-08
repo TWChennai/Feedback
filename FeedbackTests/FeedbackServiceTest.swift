@@ -8,7 +8,7 @@ import OHHTTPStubs
 
 class FeedbackServiceTests: QuickSpec {
     var items: Array<ItemModel> = []
-    
+
     override func spec() {
         describe("In feedback view model") {
             context("Get items") {
@@ -19,21 +19,21 @@ class FeedbackServiceTests: QuickSpec {
                     stub(condition: isHost("54.255.184.116")) { _ in
                         return OHHTTPStubsResponse(jsonObject: stubbedItems, statusCode: 200, headers: [ "Content-Type": "application/json" ])
                     }
-                    func callback(arg: [ItemModel]) {
-                        self.items = arg
-                    }
-                    expect(self.items.count).to(equal(0))
                     
-                    feedbackService.getItems(onLoadedAllItems: callback)
+
+                    let producer = feedbackService.getItems()
                     
-                    expect(self.items.count).toEventually(equal(2))
+                    producer.startWithValues({(data:[ItemModel]) -> Void in
+                        expect(data.count).to(equal(2))
+                    })
+                
                 }
             }
             
             context("Submit feedback") {
                 it("should call the callback on success") {
-                    var callbackCalled = false
                     let feedbackService = FeedbackService()
+                    var completed = false
                     let item: ItemModel = ItemModel()
                     item.name = "test"
                     
@@ -41,13 +41,17 @@ class FeedbackServiceTests: QuickSpec {
                         return OHHTTPStubsResponse(jsonObject: [:], statusCode: 200, headers: [ "Content-Type": "application/json" ])
                     }
                     
-                    feedbackService.addFeedback(item: item, feedback: "", onSuccess: {_ in callbackCalled = true})
+                    let producer = feedbackService.addFeedback(item: item, feedback: "")
                     
-                    expect(callbackCalled).toEventually(equal(true))
+                    producer.startWithCompleted {
+                        completed = true
+                    }
+                    
+                    expect(completed).toEventually(equal(true))
                 }
                 it("should not call the callback if the submission fails") {
-                    var callbackCalled = false
                     let feedbackService = FeedbackService()
+                    var completed = false
                     let item: ItemModel = ItemModel()
                     item.name = "test"
                     
@@ -55,9 +59,13 @@ class FeedbackServiceTests: QuickSpec {
                         return OHHTTPStubsResponse(jsonObject: [:], statusCode: 400, headers: [ "Content-Type": "application/json" ])
                     }
                     
-                    feedbackService.addFeedback(item: item, feedback: "", onSuccess: {_ in callbackCalled = true})
+                    let producer = feedbackService.addFeedback(item: item, feedback: "")
                     
-                    expect(callbackCalled).toEventually(equal(false))
+                    producer.startWithCompleted {
+                        completed = true
+                    }
+                    
+                    expect(completed).toEventually(equal(false))
                 }
             }
         }

@@ -5,7 +5,7 @@ import Cuckoo
 
 @testable import Feedback
 
-extension FoodCategoriesViewController {
+extension CategoriesViewController {
     private struct CustomPropertyStruct {
         static var segueCalled: Bool?
     }
@@ -28,50 +28,50 @@ class FoodCategoriesViewControllerTests : QuickSpec {
 
     override func spec() {
         describe("In food category view") {
-            let foodCategoriesView: FoodCategoriesViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "foodcategories") as! FoodCategoriesViewController
+            let foodCategoriesView: CategoriesViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "foodcategories") as! CategoriesViewController
             context("table view") {
                 it("should have the rows equal to number of categories") {
-                    foodCategoriesView.categories = []
+                    foodCategoriesView.categoriesList = []
 
                     _ = foodCategoriesView.view
 
-                    expect(foodCategoriesView.tableView(foodCategoriesView.category, numberOfRowsInSection: 1)) == 0
+                    expect(foodCategoriesView.tableView(foodCategoriesView.categories, numberOfRowsInSection: 1)) == 0
 
-                    foodCategoriesView.categories = ["1", "2", "3", "4"]
-                    expect(foodCategoriesView.tableView(foodCategoriesView.category, numberOfRowsInSection: 1)) == 4
+                    foodCategoriesView.categoriesList = ["1", "2", "3", "4"]
+                    expect(foodCategoriesView.tableView(foodCategoriesView.categories, numberOfRowsInSection: 1)) == 4
                 }
 
                 it("should set the label to the category name") {
-                    foodCategoriesView.categories = ["1", "2", "3", "4"]
+                    foodCategoriesView.categoriesList = ["1", "2", "3", "4"]
 
-                    _ = foodCategoriesView.category.reloadData()
+                    _ = foodCategoriesView.categories.reloadData()
 
-                    let cell: UITableViewCell = foodCategoriesView.tableView(foodCategoriesView.category, cellForRowAt: IndexPath(row: 0, section: 0))
+                    let cell: UITableViewCell = foodCategoriesView.tableView(foodCategoriesView.categories, cellForRowAt: IndexPath(row: 0, section: 0))
                     expect(cell.textLabel?.text) == "1"
                 }
 
                 it("should set the label to the category name") {
-                    foodCategoriesView.categories = ["1", "2", "3", "4"]
-                    _ = foodCategoriesView.category.reloadData()
+                    foodCategoriesView.categoriesList = ["1", "2", "3", "4"]
+                    _ = foodCategoriesView.categories.reloadData()
 
-                    let cell: UITableViewCell = foodCategoriesView.tableView(foodCategoriesView.category, cellForRowAt: IndexPath(row: 0, section: 0))
+                    let cell: UITableViewCell = foodCategoriesView.tableView(foodCategoriesView.categories, cellForRowAt: IndexPath(row: 0, section: 0))
 
                     expect(cell.textLabel?.text) == "1"
                 }
 
                 it("should redirect to category page on click of a row") {
-                    foodCategoriesView.categories = ["1", "2"]
+                    foodCategoriesView.categoriesList = ["1", "2"]
                     _ = foodCategoriesView.view
 
-                    foodCategoriesView.tableView(foodCategoriesView.category, didSelectRowAt: IndexPath(row: 0, section: 0))
+                    foodCategoriesView.tableView(foodCategoriesView.categories, didSelectRowAt: IndexPath(row: 0, section: 0))
 
                     expect(foodCategoriesView.segueCalled).to(beTrue())
                 }
 
                 it("should redirect and set the title of category page") {
-                    foodCategoriesView.categories = ["1", "2"]
+                    foodCategoriesView.categoriesList = ["1", "2"]
                     _ = foodCategoriesView.view
-                    foodCategoriesView.category.selectRow(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: UITableViewScrollPosition.top)
+                    foodCategoriesView.categories.selectRow(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: UITableViewScrollPosition.top)
                     let categoryViewController = CategoryViewController()
                     let segue = UIStoryboardSegue(identifier: "categories", source: foodCategoriesView, destination: categoryViewController)
 

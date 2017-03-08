@@ -170,10 +170,10 @@
             </objects>
             <point key="canvasLocation" x="340" y="126.38680659670166"/>
         </scene>
-        <!--Food Categories View Controller-->
+        <!--Categories View Controller-->
         <scene sceneID="Xl2-JV-MPC">
             <objects>
-                <viewController storyboardIdentifier="foodcategories" automaticallyAdjustsScrollViewInsets="NO" id="Hsz-E5-xRC" customClass="FoodCategoriesViewController" customModule="Feedback" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="foodcategories" automaticallyAdjustsScrollViewInsets="NO" id="Hsz-E5-xRC" userLabel="Categories View Controller" customClass="CategoriesViewController" customModule="Feedback" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xvs-WO-AjT"/>
                         <viewControllerLayoutGuide type="bottom" id="jjN-F5-zX5"/>
@@ -205,7 +205,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="category" destination="C0t-Dv-rZs" id="Frt-Rq-MHv"/>
+                        <outlet property="categories" destination="C0t-Dv-rZs" id="Frt-Rq-MHv"/>
                         <segue destination="wDa-TA-9Ai" kind="show" identifier="category" id="bfS-hu-KnS"/>
                     </connections>
                 </viewController>

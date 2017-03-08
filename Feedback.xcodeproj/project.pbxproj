@@ -31,7 +31,7 @@
 		5B7662A91E6FD1C5003E1F17 /* CategoryViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7662A81E6FD1C5003E1F17 /* CategoryViewControllerTests.swift */; };
 		5B7662AB1E6FD53A003E1F17 /* FoodCategoriesViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7662AA1E6FD53A003E1F17 /* FoodCategoriesViewControllerTests.swift */; };
 		5BB5859D1E5C299000C0404B /* ItemCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB5859C1E5C299000C0404B /* ItemCellView.swift */; };
-		5BF624CF1E6E9DB70062D836 /* FoodCategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF624CE1E6E9DB70062D836 /* FoodCategoriesViewController.swift */; };
+		5BF624CF1E6E9DB70062D836 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF624CE1E6E9DB70062D836 /* CategoriesViewController.swift */; };
 		5BF624D11E6EB0170062D836 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF624D01E6EB0170062D836 /* CategoryViewController.swift */; };
 		7BA5FA351E5DA621002E52E1 /* FeedbackViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA5FA341E5DA621002E52E1 /* FeedbackViewModelTest.swift */; };
 		7BC17AB41E5C462D00804961 /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC17AB31E5C462D00804961 /* ItemModel.swift */; };
@@ -90,7 +90,7 @@
 		5B7662A81E6FD1C5003E1F17 /* CategoryViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryViewControllerTests.swift; sourceTree = "<group>"; };
 		5B7662AA1E6FD53A003E1F17 /* FoodCategoriesViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodCategoriesViewControllerTests.swift; sourceTree = "<group>"; };
 		5BB5859C1E5C299000C0404B /* ItemCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCellView.swift; sourceTree = "<group>"; };
-		5BF624CE1E6E9DB70062D836 /* FoodCategoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodCategoriesViewController.swift; sourceTree = "<group>"; };
+		5BF624CE1E6E9DB70062D836 /* CategoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		5BF624D01E6EB0170062D836 /* CategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		6F9ED2F1A24CC826157FD5FF /* Pods-FeedbackUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FeedbackUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FeedbackUITests/Pods-FeedbackUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7BA5FA341E5DA621002E52E1 /* FeedbackViewModelTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewModelTest.swift; sourceTree = "<group>"; };
@@ -217,7 +217,7 @@
 				16E84A711E55A959002B4245 /* FeedbackView.swift */,
 				5B0A036D1E67416400B429EA /* CaptureFeedbackView.swift */,
 				5BB5859C1E5C299000C0404B /* ItemCellView.swift */,
-				5BF624CE1E6E9DB70062D836 /* FoodCategoriesViewController.swift */,
+				5BF624CE1E6E9DB70062D836 /* CategoriesViewController.swift */,
 				5BF624D01E6EB0170062D836 /* CategoryViewController.swift */,
 			);
 			name = View;
@@ -577,7 +577,7 @@
 			files = (
 				5B5279041E5D8155001CB322 /* AppDelegate.swift in Sources */,
 				7BC17AB41E5C462D00804961 /* ItemModel.swift in Sources */,
-				5BF624CF1E6E9DB70062D836 /* FoodCategoriesViewController.swift in Sources */,
+				5BF624CF1E6E9DB70062D836 /* CategoriesViewController.swift in Sources */,
 				5BB5859D1E5C299000C0404B /* ItemCellView.swift in Sources */,
 				5BF624D11E6EB0170062D836 /* CategoryViewController.swift in Sources */,
 				5B5279021E5D7DDD001CB322 /* FeedbackService.swift in Sources */,

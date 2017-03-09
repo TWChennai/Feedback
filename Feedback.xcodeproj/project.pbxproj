@@ -29,7 +29,9 @@
 		5B5279041E5D8155001CB322 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5279031E5D8155001CB322 /* AppDelegate.swift */; };
 		5B5279061E5EB8DC001CB322 /* feedback.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 5B5279051E5EB8DC001CB322 /* feedback.jpeg */; };
 		5B7662A91E6FD1C5003E1F17 /* CategoryViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7662A81E6FD1C5003E1F17 /* CategoryViewControllerTests.swift */; };
-		5B7662AB1E6FD53A003E1F17 /* FoodCategoriesViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7662AA1E6FD53A003E1F17 /* FoodCategoriesViewControllerTests.swift */; };
+		5B7662AB1E6FD53A003E1F17 /* CategoriesViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7662AA1E6FD53A003E1F17 /* CategoriesViewControllerTests.swift */; };
+		5B7662AD1E7049DF003E1F17 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7662AC1E7049DF003E1F17 /* Category.swift */; };
+		5B7662AF1E70591C003E1F17 /* CategoryModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7662AE1E70591C003E1F17 /* CategoryModelTest.swift */; };
 		5BB5859D1E5C299000C0404B /* ItemCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB5859C1E5C299000C0404B /* ItemCellView.swift */; };
 		5BF624CF1E6E9DB70062D836 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF624CE1E6E9DB70062D836 /* CategoriesViewController.swift */; };
 		5BF624D11E6EB0170062D836 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF624D01E6EB0170062D836 /* CategoryViewController.swift */; };
@@ -88,7 +90,9 @@
 		5B5279031E5D8155001CB322 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B5279051E5EB8DC001CB322 /* feedback.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = feedback.jpeg; sourceTree = "<group>"; };
 		5B7662A81E6FD1C5003E1F17 /* CategoryViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryViewControllerTests.swift; sourceTree = "<group>"; };
-		5B7662AA1E6FD53A003E1F17 /* FoodCategoriesViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodCategoriesViewControllerTests.swift; sourceTree = "<group>"; };
+		5B7662AA1E6FD53A003E1F17 /* CategoriesViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesViewControllerTests.swift; sourceTree = "<group>"; };
+		5B7662AC1E7049DF003E1F17 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		5B7662AE1E70591C003E1F17 /* CategoryModelTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryModelTest.swift; sourceTree = "<group>"; };
 		5BB5859C1E5C299000C0404B /* ItemCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCellView.swift; sourceTree = "<group>"; };
 		5BF624CE1E6E9DB70062D836 /* CategoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		5BF624D01E6EB0170062D836 /* CategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
@@ -180,11 +184,12 @@
 				16E84A861E55A959002B4245 /* Info.plist */,
 				7BF550AA1E571AD300E8AB63 /* FeedbackViewTests.swift */,
 				7BC17AB51E5D551100804961 /* ItemModelTest.swift */,
+				5B7662AE1E70591C003E1F17 /* CategoryModelTest.swift */,
 				7BA5FA341E5DA621002E52E1 /* FeedbackServiceTest.swift */,
 				5B1609241E683A64003750B1 /* ItemModelExtension.swift */,
 				5B1609261E683DD2003750B1 /* CaptureFeedbackViewTest.swift */,
 				5B7662A81E6FD1C5003E1F17 /* CategoryViewControllerTests.swift */,
-				5B7662AA1E6FD53A003E1F17 /* FoodCategoriesViewControllerTests.swift */,
+				5B7662AA1E6FD53A003E1F17 /* CategoriesViewControllerTests.swift */,
 			);
 			path = FeedbackTests;
 			sourceTree = "<group>";
@@ -227,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				7BC17AB31E5C462D00804961 /* ItemModel.swift */,
+				5B7662AC1E7049DF003E1F17 /* Category.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -520,7 +526,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\nOUTPUT_FILE=\"$PROJECT_DIR/Tests/GeneratedMocks.swift\"\necho \"Generated Mocks File = $OUTPUT_FILE\"\n\nINPUT_DIR=\"$PROJECT_DIR\"\necho \"Mocks Input Directory = $INPUT_DIR\"\n${PODS_ROOT}/Cuckoo/run generate --testable \"$PROJECT_NAME\" \\\n--output \"${OUTPUT_FILE}\" \\\n\"$INPUT_DIR/Feedback/FeedbackService.swift\"";
 			showEnvVarsInLog = 0;
 		};
 		CB8F4BF87A9A66B2E65FE9A3 /* [CP] Copy Pods Resources */ = {
@@ -580,6 +586,7 @@
 				5BF624CF1E6E9DB70062D836 /* CategoriesViewController.swift in Sources */,
 				5BB5859D1E5C299000C0404B /* ItemCellView.swift in Sources */,
 				5BF624D11E6EB0170062D836 /* CategoryViewController.swift in Sources */,
+				5B7662AD1E7049DF003E1F17 /* Category.swift in Sources */,
 				5B5279021E5D7DDD001CB322 /* FeedbackService.swift in Sources */,
 				5B0A036E1E67416400B429EA /* CaptureFeedbackView.swift in Sources */,
 				16E84A721E55A959002B4245 /* FeedbackView.swift in Sources */,
@@ -590,11 +597,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B7662AF1E70591C003E1F17 /* CategoryModelTest.swift in Sources */,
 				5B1609251E683A64003750B1 /* ItemModelExtension.swift in Sources */,
 				7BC17AB61E5D551100804961 /* ItemModelTest.swift in Sources */,
 				5B1609271E683DD2003750B1 /* CaptureFeedbackViewTest.swift in Sources */,
 				7BF550AB1E571AD300E8AB63 /* FeedbackViewTests.swift in Sources */,
-				5B7662AB1E6FD53A003E1F17 /* FoodCategoriesViewControllerTests.swift in Sources */,
+				5B7662AB1E6FD53A003E1F17 /* CategoriesViewControllerTests.swift in Sources */,
 				7BA5FA351E5DA621002E52E1 /* FeedbackServiceTest.swift in Sources */,
 				5B0A036B1E66CF0100B429EA /* GeneratedMocks.swift in Sources */,
 				5B7662A91E6FD1C5003E1F17 /* CategoryViewControllerTests.swift in Sources */,

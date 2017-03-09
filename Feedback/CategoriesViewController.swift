@@ -1,12 +1,20 @@
 import UIKit
+import ReactiveSwift
 
 class CategoriesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var categoriesList = ["breakfast", "lunch", "snacks"]
+    var categoriesList: Array<CategoryModel> = []
+    var feedbackService: FeedbackService = FeedbackService()
     @IBOutlet weak var categories: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        feedbackService
+            .getCategories()
+            .startWithValues({
+                categoriesList in self.categoriesList = categoriesList
+                self.categories.reloadData()
+            })
         categories.tableFooterView = UIView()
     }
 
@@ -16,7 +24,7 @@ class CategoriesViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = categories.dequeueReusableCell(withIdentifier: "category", for: indexPath)
-            cell.textLabel?.text = categoriesList[indexPath.row]
+            cell.textLabel?.text = categoriesList[indexPath.row].name
         return cell
     }
     
@@ -27,7 +35,7 @@ class CategoriesViewController: UIViewController, UITableViewDelegate, UITableVi
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let categoryViewController: CategoryViewController = segue.destination as! CategoryViewController
         if let indexPath = self.categories.indexPathForSelectedRow {
-            categoryViewController.heading = categoriesList[indexPath.row]
+            categoryViewController.currentCategory = categoriesList[indexPath.row]
         }
     }
 }

@@ -9,11 +9,20 @@ class FeedbackService {
 
     let url = ProcessInfo.processInfo.environment["FEEDBACK_BACKEND_URL"]
     
-    func getItems() -> SignalProducer<[ItemModel], NoError> {
+    func getItems(categoryId: String = "57b048b0-2002-41f3-908f-103faba36e96") -> SignalProducer<[ItemModel], NoError> {
         return SignalProducer { sink, disposable in
-            Alamofire.request(self.url! + "/items", parameters: ["categoryId": "57b048b0-2002-41f3-908f-103faba36e96"]).responseArray { (response: DataResponse<[ItemModel]>) in
+            Alamofire.request(self.url! + "/items", parameters: ["categoryId": categoryId]).responseArray { (response: DataResponse<[ItemModel]>) in
                 let items = response.result.value!
                 sink.send(value: items)
+            }
+        }
+    }
+
+    func getCategories() -> SignalProducer<[CategoryModel], NoError> {
+        return SignalProducer {sink, disposable in
+        Alamofire.request(self.url! + "/categories").responseArray { (response: DataResponse<[CategoryModel]>) in
+            let categories = response.result.value!
+            sink.send(value: categories)
             }
         }
     }
@@ -31,4 +40,3 @@ class FeedbackService {
         }
     }
 }
- 

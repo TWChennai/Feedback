@@ -1,4 +1,4 @@
-// MARK: - Mocks generated from file: Feedback/FeedbackService.swift at 2017-03-08 13:58:36 +0000
+// MARK: - Mocks generated from file: Feedback/FeedbackService.swift at 2017-03-09 06:19:28 +0000
 
 
 import Cuckoo
@@ -24,8 +24,12 @@ class MockFeedbackService: FeedbackService, Cuckoo.Mock {
         return self
     }
     
-    override func getItems() -> SignalProducer<[ItemModel], NoError> {
-        return manager.call("getItems() -> SignalProducer<[ItemModel], NoError>", parameters: (), original: observed.map { o in return { () -> SignalProducer<[ItemModel], NoError> in o.getItems() } })
+    override func getItems(categoryId: String) -> SignalProducer<[ItemModel], NoError> {
+        return manager.call("getItems(categoryId: String) -> SignalProducer<[ItemModel], NoError>", parameters: (categoryId), original: observed.map { o in return { (categoryId: String) -> SignalProducer<[ItemModel], NoError> in o.getItems(categoryId: categoryId) } })
+    }
+    
+    override func getCategories() -> SignalProducer<[CategoryModel], NoError> {
+        return manager.call("getCategories() -> SignalProducer<[CategoryModel], NoError>", parameters: (), original: observed.map { o in return { () -> SignalProducer<[CategoryModel], NoError> in o.getCategories() } })
     }
     
     override func addFeedback(item: ItemModel, feedback: String) -> SignalProducer<(), NoError> {
@@ -39,8 +43,13 @@ class MockFeedbackService: FeedbackService, Cuckoo.Mock {
             self.manager = manager
         }
         
-        func getItems() -> Cuckoo.StubFunction<(), SignalProducer<[ItemModel], NoError>> {
-            return Cuckoo.StubFunction(stub: manager.createStub("getItems() -> SignalProducer<[ItemModel], NoError>", parameterMatchers: []))
+        func getItems<M1: Cuckoo.Matchable>(categoryId: M1) -> Cuckoo.StubFunction<(String), SignalProducer<[ItemModel], NoError>> where M1.MatchedType == String {
+            let matchers: [Cuckoo.ParameterMatcher<(String)>] = [wrap(matchable: categoryId) { $0 }]
+            return Cuckoo.StubFunction(stub: manager.createStub("getItems(categoryId: String) -> SignalProducer<[ItemModel], NoError>", parameterMatchers: matchers))
+        }
+        
+        func getCategories() -> Cuckoo.StubFunction<(), SignalProducer<[CategoryModel], NoError>> {
+            return Cuckoo.StubFunction(stub: manager.createStub("getCategories() -> SignalProducer<[CategoryModel], NoError>", parameterMatchers: []))
         }
         
         func addFeedback<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable>(item: M1, feedback: M2) -> Cuckoo.StubFunction<(ItemModel, String), SignalProducer<(), NoError>> where M1.MatchedType == ItemModel, M2.MatchedType == String {
@@ -61,8 +70,14 @@ class MockFeedbackService: FeedbackService, Cuckoo.Mock {
         }
         
         @discardableResult
-        func getItems() -> Cuckoo.__DoNotUse<SignalProducer<[ItemModel], NoError>> {
-            return manager.verify("getItems() -> SignalProducer<[ItemModel], NoError>", callMatcher: callMatcher, parameterMatchers: [] as [Cuckoo.ParameterMatcher<Void>], sourceLocation: sourceLocation)
+        func getItems<M1: Cuckoo.Matchable>(categoryId: M1) -> Cuckoo.__DoNotUse<SignalProducer<[ItemModel], NoError>> where M1.MatchedType == String {
+            let matchers: [Cuckoo.ParameterMatcher<(String)>] = [wrap(matchable: categoryId) { $0 }]
+            return manager.verify("getItems(categoryId: String) -> SignalProducer<[ItemModel], NoError>", callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
+        }
+        
+        @discardableResult
+        func getCategories() -> Cuckoo.__DoNotUse<SignalProducer<[CategoryModel], NoError>> {
+            return manager.verify("getCategories() -> SignalProducer<[CategoryModel], NoError>", callMatcher: callMatcher, parameterMatchers: [] as [Cuckoo.ParameterMatcher<Void>], sourceLocation: sourceLocation)
         }
         
         @discardableResult
@@ -75,8 +90,12 @@ class MockFeedbackService: FeedbackService, Cuckoo.Mock {
 
 class FeedbackServiceStub: FeedbackService {
     
-    override func getItems() -> SignalProducer<[ItemModel], NoError> {
+    override func getItems(categoryId: String) -> SignalProducer<[ItemModel], NoError> {
         return DefaultValueRegistry.defaultValue(for: (SignalProducer<[ItemModel], NoError>).self)
+    }
+    
+    override func getCategories() -> SignalProducer<[CategoryModel], NoError> {
+        return DefaultValueRegistry.defaultValue(for: (SignalProducer<[CategoryModel], NoError>).self)
     }
     
     override func addFeedback(item: ItemModel, feedback: String) -> SignalProducer<(), NoError> {

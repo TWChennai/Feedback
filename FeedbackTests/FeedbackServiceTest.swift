@@ -7,7 +7,6 @@ import OHHTTPStubs
 @testable import Feedback
 
 class FeedbackServiceTests: QuickSpec {
-    var items: Array<ItemModel> = []
 
     override func spec() {
         describe("In feedback view model") {
@@ -29,7 +28,24 @@ class FeedbackServiceTests: QuickSpec {
                 
                 }
             }
-            
+
+            context("Get categories") {
+                it("should return categories") {
+                    let feedbackService = FeedbackService()
+                    let stubbedCategories = [["name": "value1", "_id": "1"],["type":"value2", "_id": "2"]]
+
+                    stub(condition: isHost("54.255.184.116")) { _ in
+                        return OHHTTPStubsResponse(jsonObject: stubbedCategories, statusCode: 200, headers: [ "Content-Type": "application/json" ])
+                    }
+
+                    let producer = feedbackService.getCategories()
+
+                    producer.startWithValues({(data:[CategoryModel]) -> Void in
+                        expect(data.count).to(equal(2))
+                    })
+                }
+            }
+
             context("Submit feedback") {
                 it("should call the callback on success") {
                     let feedbackService = FeedbackService()

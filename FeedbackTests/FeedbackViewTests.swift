@@ -40,8 +40,7 @@ class FeedbackViewTests: QuickSpec {
                     feedbackView.viewModel = viewmodel
                     
                     stub(viewmodel) { viewmodel in
-                        
-                        when(viewmodel.getItems()).then({ () -> SignalProducer<[ItemModel], NoError> in
+                        when(viewmodel.getItems(categoryId: anyString())).then({ (String) -> SignalProducer<[ItemModel], NoError> in
                             return SignalProducer<[ItemModel], NoError> {
                                 sink, disposable in
                                 let items = [ItemModel(name: "sdfds")]
@@ -49,10 +48,10 @@ class FeedbackViewTests: QuickSpec {
                             }
                         })
                     }
-                    
+
                     _ = feedbackView.view
-                    
-                    verify(viewmodel).getItems()
+
+                    verify(viewmodel).getItems(categoryId: anyString())
                 }
             }
             

@@ -14,7 +14,5 @@ class FeedbackUITests: BaseTest {
         feedbackPage.verifySelectedMenuItem(menuName: menuImageName, numberOfFeedbackList: 3,expectedFeedbackLists: expectedFeedbackLists)
         feedbackPage.submitFeedback(feedbackType: feedbackType)
         feedbackPage.verifyFeedbackSubmittedSuccessfully()
-        
     }
-    
 }

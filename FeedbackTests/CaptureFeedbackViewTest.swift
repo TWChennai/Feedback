@@ -10,13 +10,14 @@ import enum Result.NoError
 class CaptureFeedbackViewTests: QuickSpec {
 
     override func spec() {
-        
+
         describe("In feedback view") {
-            
-            let feedbackView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "feedbackView") as! FeedbackView
-            
+            let feedbackView = UIStoryboard(name: "Main", bundle: nil)
+                .instantiateViewController(withIdentifier: "feedbackView") as! FeedbackView
+            // swiftlint:disable:previous force_cast
+
             context("table view") {
-                
+
                 it("should have count same as number of predefined feedback") {
                     _ = feedbackView.view
                     let item = ItemModel()
@@ -27,20 +28,22 @@ class CaptureFeedbackViewTests: QuickSpec {
                     expect(feedbackView.tableView(feedbackView.predefinedFeedback, numberOfRowsInSection: 1)) == 0
 
                     feedbackView.currentItem = item
-                    expect(feedbackView.tableView(feedbackView.predefinedFeedback, numberOfRowsInSection: 1)) == predefinedFeedbacks.count
+                    expect(feedbackView.tableView(feedbackView.predefinedFeedback, numberOfRowsInSection: 1))
+                        == predefinedFeedbacks.count
                 }
-                
+
                 it("should load the content of the predefined feedback") {
                     _ = feedbackView.view
                     let item = ItemModel()
                     item.predefinedFeedbacks = ["one", "two", "three"]
                     feedbackView.currentItem = item
 
-                    let cell: UITableViewCell = feedbackView.tableView(feedbackView.predefinedFeedback, cellForRowAt: IndexPath(row: 1, section: 0))
+                    let cell: UITableViewCell = feedbackView.tableView(feedbackView.predefinedFeedback,
+                                                                       cellForRowAt: IndexPath(row: 1, section: 0))
 
                     expect(cell.textLabel?.text) == "two"
                 }
-                
+
                 it("should have count same as number of predefined feedback") {
                     let row = 0
                     let mockFeedbackService = MockFeedbackService()
@@ -51,15 +54,16 @@ class CaptureFeedbackViewTests: QuickSpec {
                     _ = feedbackView.view
 
                     stub(mockFeedbackService) { viewmodel in
-                        when(viewmodel.addFeedback(item: any(), feedback: any())).then({ (ItemModel,String) -> SignalProducer<(), NoError> in
-                            return SignalProducer<(), NoError> { sink, disposable in
+                        when(viewmodel.addFeedback(item: any(), feedback: any()))
+                            .then({ (_, _) -> SignalProducer<(), NoError> in
+                            return SignalProducer<(), NoError> { sink, _ in
                                  sink.sendCompleted()
                             }
                         })
                     }
 
-                    feedbackView.tableView(feedbackView.predefinedFeedback, didHighlightRowAt: IndexPath(row: row, section: 0))
-
+                    feedbackView.tableView(feedbackView.predefinedFeedback,
+                                           didHighlightRowAt: IndexPath(row: row, section: 0))
 
                     verify(mockFeedbackService).addFeedback(item: any(), feedback: any())
                 }

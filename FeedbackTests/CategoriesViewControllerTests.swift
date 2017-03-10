@@ -26,20 +26,20 @@ extension CategoriesViewController {
     }
 }
 
-class CategoriesViewControllerTests : QuickSpec {
+class CategoriesViewControllerTests: QuickSpec {
 
     override func spec() {
         describe("In food category view") {
-            let categoriesView: CategoriesViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "foodcategories") as! CategoriesViewController
+            let categoriesView: CategoriesViewController = UIStoryboard(name: "Main", bundle: nil)
+                .instantiateViewController(withIdentifier: "foodcategories") as! CategoriesViewController
+            // swiftlint:disable:previous force_cast
             context("in view did load") {
                 it("should get all the categories") {
-                    let mockFeedbackService = MockFeedbackService()
-                    categoriesView.feedbackService = mockFeedbackService
+                    categoriesView.feedbackService = MockFeedbackService()
 
                     stub(mockFeedbackService) { service in
                         when(service.getCategories()).then({ () -> SignalProducer<[CategoryModel], NoError> in
-                            return SignalProducer<[CategoryModel], NoError> {
-                                sink, disposable in
+                            return SignalProducer<[CategoryModel], NoError> { sink, _ in
                                 let categories = [CategoryModel()]
                                 sink.send(value: categories)
                             }
@@ -72,7 +72,8 @@ class CategoriesViewControllerTests : QuickSpec {
 
                     _ = categoriesView.categories.reloadData()
 
-                    let cell: UITableViewCell = categoriesView.tableView(categoriesView.categories, cellForRowAt: IndexPath(row: 0, section: 0))
+                    let cell: UITableViewCell = categoriesView.tableView(categoriesView.categories,
+                                                                         cellForRowAt: IndexPath(row: 0, section: 0))
                     expect(cell.textLabel?.text) == categoryModelName
                 }
 
@@ -91,9 +92,11 @@ class CategoriesViewControllerTests : QuickSpec {
                     categoryModel.name = "name"
                     categoriesView.categoriesList = [categoryModel, categoryModel]
                     _ = categoriesView.view
-                    categoriesView.categories.selectRow(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: UITableViewScrollPosition.top)
+                    categoriesView.categories.selectRow(at: IndexPath(row: 0, section: 0), animated: false,
+                                                        scrollPosition: UITableViewScrollPosition.top)
                     let categoryViewController = CategoryViewController()
-                    let segue = UIStoryboardSegue(identifier: "categories", source: categoriesView, destination: categoryViewController)
+                    let segue = UIStoryboardSegue(identifier: "categories", source: categoriesView,
+                                                  destination: categoryViewController)
 
                     categoriesView.prepare(for: segue, sender: self)
 

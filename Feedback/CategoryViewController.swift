@@ -2,7 +2,7 @@ import UIKit
 
 class CategoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var currentCategory: CategoryModel?
-    var itemList: Array<ItemModel> = []
+    var itemList: [ItemModel] = []
     var feedbackService: FeedbackService = FeedbackService()
 
     @IBOutlet weak var header: UILabel!
@@ -12,7 +12,8 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         header.text = currentCategory?.name
-        feedbackService.getItems(categoryId: (currentCategory?.id)!).startWithValues({fetchedItems in self.itemList = fetchedItems; self.items.reloadData()})
+        feedbackService.getItems(categoryId: (currentCategory?.id)!).startWithValues({fetchedItems in
+            self.itemList = fetchedItems; self.items.reloadData()})
         items.tableFooterView = UIView()
     }
 

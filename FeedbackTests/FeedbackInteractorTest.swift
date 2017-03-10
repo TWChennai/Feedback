@@ -24,7 +24,8 @@
 //                    let feedbackInteractor = FeedbackInteractor()
 //                    let stubbedItems = [["type": "value1"],["type":"value2"]]
 //                    stub(condition: isHost("54.255.184.116")) { _ in
-//                        return OHHTTPStubsResponse(jsonObject: stubbedItems, statusCode: 200, headers: [ "Content-Type": "application/json" ])
+//                        return OHHTTPStubsResponse(jsonObject: stubbedItems, 
+//                               statusCode: 200, headers: [ "Content-Type": "application/json" ])
 //                    }
 //                    var called = false
 //                    func abc(arg: [ItemModel]){

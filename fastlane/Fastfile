@@ -21,6 +21,15 @@ platform :ios do
     cocoapods
   end
 
+  desc "Runs swift lint"
+  lane :lint do
+    swiftlint(
+      mode: :lint, # SwiftLint mode: :lint (default) or :autocorrect
+      output_file: "swiftlint.json",
+      ignore_exit_status: true # Allow fastlane to continue even if SwiftLint returns a non-zero exit status
+    )
+  end
+
   desc "Runs all the tests"
   lane :test do
     scan({

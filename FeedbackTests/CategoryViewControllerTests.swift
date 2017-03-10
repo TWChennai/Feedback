@@ -8,10 +8,12 @@ import enum Result.NoError
 @testable import Feedback
 
 class CategoryViewControllerTests: QuickSpec {
-    
+
     override func spec() {
         describe("In category view") {
-            let categoryView: CategoryViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "category") as! CategoryViewController
+            let categoryView: CategoryViewController = UIStoryboard(name: "Main", bundle: nil)
+                .instantiateViewController(withIdentifier: "category") as! CategoryViewController
+            // swiftlint:disable:previous force_cast
             context("view did load") {
                 it("should set the header title") {
                     let title: String = "title"
@@ -23,15 +25,14 @@ class CategoryViewControllerTests: QuickSpec {
                     categoryView.feedbackService = mockFeedbackService
 
                     stub(mockFeedbackService) { service in
-                        when(service.getItems(categoryId: anyString())).then({ (String) -> SignalProducer<[ItemModel], NoError> in
-                            return SignalProducer<[ItemModel], NoError> {
-                                sink, disposable in
+                        when(service.getItems(categoryId: anyString()))
+                            .then({(_) -> SignalProducer<[ItemModel], NoError> in
+                            return SignalProducer<[ItemModel], NoError> { sink, _ in
                                 let items = [ItemModel(name: "sdfds")]
                                 sink.send(value: items)
                             }
                         })
                     }
-
 
                     _ = categoryView.view
 

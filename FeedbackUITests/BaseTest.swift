@@ -4,17 +4,14 @@ import Foundation
 extension XCUIApplication {
     func launchTestsWithEnvironmentVariables() {
         launchEnvironment = [
-            "FEEDBACK_BACKEND_URL" : "http://localhost:3050",
+            "FEEDBACK_BACKEND_URL": "http://localhost:3050",
             "S3_URL": "https://s3.amazonaws.com/recruitx-feedback-image-qa/uploads/"
         ]
         self.launch()
     }
 }
 
-
-
 class BaseTest: XCTestCase {
-    
     let app = XCUIApplication()
     let feedbackPage=FeedbackPage()
 
@@ -23,11 +20,8 @@ class BaseTest: XCTestCase {
         continueAfterFailure = true
         app.launchTestsWithEnvironmentVariables()
     }
-    
+
     override func tearDown() {
         super.tearDown()
     }
-    
-
-    
 }

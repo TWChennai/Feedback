@@ -9,30 +9,29 @@
 import Foundation
 import XCTest
 
-
 extension XCTestCase {
-    
+
     func waitforExistence(_ element: XCUIElement) {
         let exists = NSPredicate(format: "exists == true")
         
         expectation(for: exists, evaluatedWith: element, handler: nil)
         waitForExpectations(timeout: 20, handler: nil)
     }
-    
+
     func waitForElementToAppear(element: XCUIElement) {
         let exists = NSPredicate(format: "exists == true")
             
         expectation(for: exists, evaluatedWith: element, handler: nil)
         waitForExpectations(timeout: 20, handler: nil)
     }
-    
+
     func waitforNoExistence(_ element: XCUIElement) {
         let exists = NSPredicate(format: "exists != true")
         
         expectation(for: exists, evaluatedWith: element, handler: nil)
         waitForExpectations(timeout: 20, handler: nil)
     }
-    
+
     func waitForValueContains(_ element: XCUIElement, value: String) {
         let predicateText = "value CONTAINS " + "'" + value + "'"
         let valueCheck = NSPredicate(format: predicateText)
@@ -41,4 +40,3 @@ extension XCTestCase {
         waitForExpectations(timeout: 20, handler: nil)
     }
 }
-

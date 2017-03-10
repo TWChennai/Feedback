@@ -21,7 +21,6 @@
 		4CCA645B1E66F92B0011C8BC /* MonkeyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCA645A1E66F92B0011C8BC /* MonkeyTests.swift */; };
 		4CCA645D1E6722EB0011C8BC /* BasePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCA645C1E6722EB0011C8BC /* BasePage.swift */; };
 		5B09B0BB1E6ECE8300A02852 /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B09B0BA1E6ECE8300A02852 /* add.png */; };
-		5B0A036B1E66CF0100B429EA /* GeneratedMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0A036A1E66CF0100B429EA /* GeneratedMocks.swift */; };
 		5B0A036E1E67416400B429EA /* CaptureFeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0A036D1E67416400B429EA /* CaptureFeedbackView.swift */; };
 		5B1609251E683A64003750B1 /* ItemModelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1609241E683A64003750B1 /* ItemModelExtension.swift */; };
 		5B1609271E683DD2003750B1 /* CaptureFeedbackViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1609261E683DD2003750B1 /* CaptureFeedbackViewTest.swift */; };
@@ -82,7 +81,6 @@
 		4CCA645A1E66F92B0011C8BC /* MonkeyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonkeyTests.swift; sourceTree = "<group>"; };
 		4CCA645C1E6722EB0011C8BC /* BasePage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePage.swift; sourceTree = "<group>"; };
 		5B09B0BA1E6ECE8300A02852 /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
-		5B0A036A1E66CF0100B429EA /* GeneratedMocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GeneratedMocks.swift; path = Tests/GeneratedMocks.swift; sourceTree = SOURCE_ROOT; };
 		5B0A036D1E67416400B429EA /* CaptureFeedbackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureFeedbackView.swift; sourceTree = "<group>"; };
 		5B1609241E683A64003750B1 /* ItemModelExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemModelExtension.swift; sourceTree = "<group>"; };
 		5B1609261E683DD2003750B1 /* CaptureFeedbackViewTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureFeedbackViewTest.swift; sourceTree = "<group>"; };
@@ -180,7 +178,6 @@
 		16E84A831E55A959002B4245 /* FeedbackTests */ = {
 			isa = PBXGroup;
 			children = (
-				5B0A036A1E66CF0100B429EA /* GeneratedMocks.swift */,
 				16E84A861E55A959002B4245 /* Info.plist */,
 				7BF550AA1E571AD300E8AB63 /* FeedbackViewTests.swift */,
 				7BC17AB51E5D551100804961 /* ItemModelTest.swift */,
@@ -304,6 +301,7 @@
 			buildConfigurationList = 16E84A941E55A959002B4245 /* Build configuration list for PBXNativeTarget "Feedback" */;
 			buildPhases = (
 				685EF00F650EAD2067A67800 /* [CP] Check Pods Manifest.lock */,
+				F6122A9F1E7283ED00D59879 /* Cuckoo Generate Mocks */,
 				16E84A681E55A959002B4245 /* Sources */,
 				16E84A691E55A959002B4245 /* Frameworks */,
 				16E84A6A1E55A959002B4245 /* Resources */,
@@ -574,6 +572,20 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FeedbackUITests/Pods-FeedbackUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		F6122A9F1E7283ED00D59879 /* Cuckoo Generate Mocks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Cuckoo Generate Mocks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "OUTPUT_FILE=\"$PROJECT_DIR/GeneratedMocks.swift\"\necho \"Generated Mocks File = $OUTPUT_FILE\"\nINPUT_DIR=\"$PROJECT_DIR\"\necho \"Mocks Input Directory = $INPUT_DIR\"\n${PODS_ROOT}/Cuckoo/run generate --testable \"$PROJECT_NAME\" --output \"${OUTPUT_FILE}\" \"$INPUT_DIR/Feedback/FeedbackService.swift\";";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -604,7 +616,6 @@
 				7BF550AB1E571AD300E8AB63 /* FeedbackViewTests.swift in Sources */,
 				5B7662AB1E6FD53A003E1F17 /* CategoriesViewControllerTests.swift in Sources */,
 				7BA5FA351E5DA621002E52E1 /* FeedbackServiceTest.swift in Sources */,
-				5B0A036B1E66CF0100B429EA /* GeneratedMocks.swift in Sources */,
 				5B7662A91E6FD1C5003E1F17 /* CategoryViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

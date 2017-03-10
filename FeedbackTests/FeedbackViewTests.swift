@@ -119,12 +119,12 @@ class FeedbackViewTests: QuickSpec {
 
             context("side menu") {
                 it("should show/hide side menu") {
-                    expect(feedbackView.leadingConstraint.constant) == feedbackView.SIDE_MENU_HIDE_ORIGIN
+                    expect(feedbackView.leadingConstraint.constant) == feedbackView.sideMenuHideOrigin
                     feedbackView.showSideMenu(UISwipeGestureRecognizer())
                     expect(feedbackView.leadingConstraint.constant) == 0
 
                     feedbackView.hideSideMenu(UISwipeGestureRecognizer())
-                    expect(feedbackView.leadingConstraint.constant) == feedbackView.SIDE_MENU_HIDE_ORIGIN
+                    expect(feedbackView.leadingConstraint.constant) == feedbackView.sideMenuHideOrigin
                 }
 
                 it("navigate to categories page") {
@@ -132,7 +132,7 @@ class FeedbackViewTests: QuickSpec {
 
                     feedbackView.showFoodCategories(feedbackView)
 
-                    expect(feedbackView.leadingConstraint.constant) == feedbackView.SIDE_MENU_HIDE_ORIGIN
+                    expect(feedbackView.leadingConstraint.constant) == feedbackView.sideMenuHideOrigin
                     expect(feedbackView.segueCalled).to(beTrue())
                 }
             }

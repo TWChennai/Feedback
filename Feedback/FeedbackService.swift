@@ -28,9 +28,8 @@ class FeedbackService {
         }
     }
 
-    func addFeedback(item: ItemModel, feedback: String) -> SignalProducer<(), NoError> {
+    func addFeedback(itemName: String, feedback: String) -> SignalProducer<(), NoError> {
         return SignalProducer { sink, _ in
-            let itemName: String = item.name!
             Alamofire.request(self.url! + "/feedback", method: .post, parameters:
                 ["categoryId": "57b048b0-2002-41f3-908f-103faba36e96", "item": itemName,
                  "feedback": feedback])

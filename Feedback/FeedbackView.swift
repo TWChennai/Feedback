@@ -6,10 +6,9 @@ import enum Result.NoError
 import CoreData
 
 class FeedbackView: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
-    var viewModel: FeedbackService =  FeedbackService()
+    var feedbackService: FeedbackService =  FeedbackService()
 
     var items: [NSManagedObject] = []
-    var counts: SignalProducer<[ItemModel], NoError> = SignalProducer.empty
     var currentItem: NSManagedObject?
     // swiftlint:disable:next variable_name
     let S3_URL: String = ProcessInfo.processInfo.environment["S3_URL"]!
@@ -17,7 +16,6 @@ class FeedbackView: UIViewController, UICollectionViewDataSource, UICollectionVi
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var itemImage: UIImageView!
-    @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var predefinedFeedback: UITableView!
     @IBOutlet weak var leadingConstraint: NSLayoutConstraint!
 
@@ -53,12 +51,16 @@ class FeedbackView: UIViewController, UICollectionViewDataSource, UICollectionVi
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "ActivatedItems")
         do {
             items = try managedContext.fetch(fetchRequest)
-            currentItem = items[0]
+            if items.count > 0 {
+                currentItem = items[0]
+            } else {
+                currentItem = nil
+            }
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
         self.collectionView.reloadData()
-        self.reloadFeedbackCaptureView(item: self.items[0])
+        self.reloadFeedbackCaptureView(item: currentItem)
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

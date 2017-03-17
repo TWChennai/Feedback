@@ -9,7 +9,7 @@
 import Foundation
 import XCTest
 
-public class FeedbackPage:BasePage {
+public class FeedbackPage: BasePage {
 
     let application=BasePage.app
 
@@ -30,12 +30,12 @@ public class FeedbackPage:BasePage {
 
     func verifyNumberOfFoodMenuDisplayed(numberOfFoodMenu: UInt) {
         XCTestCase().waitForElementToAppear(element: foodMenuLists.element(boundBy: 1))
-        XCTAssertEqual(foodMenuLists.count, numberOfFoodMenu,"verify number of food menu list displayed")
+        XCTAssertEqual(foodMenuLists.count, numberOfFoodMenu, "verify number of food menu list displayed")
     }
 
-    func verifySelectedMenuItem(menuName: String,numberOfFeedbackList: UInt,expectedFeedbackLists: [String]) {
+    func verifySelectedMenuItem(menuName: String, numberOfFeedbackList: UInt, expectedFeedbackLists: [String]) {
         XCTAssert(application.images[menuName].exists)
-        XCTAssertEqual(feedbackLists.count, numberOfFeedbackList,"verify number of feeback list displayed")
+        XCTAssertEqual(feedbackLists.count, numberOfFeedbackList, "verify number of feeback list displayed")
         XCTAssert(getActualFeedbackLists() == expectedFeedbackLists)
     }
 

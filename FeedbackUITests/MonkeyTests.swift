@@ -16,13 +16,13 @@ class MonkeyTests: XCTestCase {
         application.launchTestsWithEnvironmentVariables()
         XCUIDevice.shared().orientation = .portrait
         _ = application.descendants(matching: .any).element(boundBy: 0).frame
-        
+
         let monkey = Monkey(frame: application.frame)
         monkey.addDefaultXCTestPrivateActions()
         monkey.addDefaultUIAutomationActions()
-        
+
         monkey.addXCTestTapAlertAction(interval: 100, application: application)
-        
+
         // Run the monkey test indefinitely.
         monkey.monkeyAround(iterations: 1000)
         report_memory()
@@ -31,7 +31,7 @@ class MonkeyTests: XCTestCase {
     func report_memory() {
         var info = mach_task_basic_info()
         var count = mach_msg_type_number_t(MemoryLayout<mach_task_basic_info>.size)/4
-        
+
         let kerr: kern_return_t = withUnsafeMutablePointer(to: &info) {
             $0.withMemoryRebound(to: integer_t.self, capacity: 1) {
                 task_info(mach_task_self_,

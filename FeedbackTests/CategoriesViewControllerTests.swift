@@ -28,6 +28,7 @@ extension CategoriesViewController {
 
 class CategoriesViewControllerTests: QuickSpec {
 
+    // swiftlint:disable:next function_body_length
     override func spec() {
         describe("In food category view") {
             let categoriesView: CategoriesViewController = UIStoryboard(name: "Main", bundle: nil)

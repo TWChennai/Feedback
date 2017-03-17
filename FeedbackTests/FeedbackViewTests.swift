@@ -28,6 +28,7 @@ extension FeedbackView {
 
 class FeedbackViewTests: QuickSpec {
 
+    // swiftlint:disable:next function_body_length
     override func spec() {
 
         describe("In feedback view") {
@@ -39,12 +40,11 @@ class FeedbackViewTests: QuickSpec {
                 it("should get data from view model") {
                     let feedbackService = MockFeedbackService()
                     feedbackView.feedbackService = feedbackService
-                    
+
                     stub(feedbackService) { feedbackService in
                         when(feedbackService.getItems(categoryId: anyString()))
                             .then({ (_) -> SignalProducer<[ItemModel], NoError> in
-                            return SignalProducer<[ItemModel], NoError> {
-                                sink, _ in
+                            return SignalProducer<[ItemModel], NoError> {sink, _ in
                                 let items = [ItemModel(name: "sdfds")]
                                 sink.send(value: items)
                             }
@@ -62,7 +62,8 @@ class FeedbackViewTests: QuickSpec {
                 it("should have count same as number of menu") {
                     let feedbackView = FeedbackView()
                     feedbackView.items = []
-                    let collectionView = UICollectionView(frame: CGRect(), collectionViewLayout: UICollectionViewLayout())
+                    let collectionView =
+                        UICollectionView(frame: CGRect(), collectionViewLayout: UICollectionViewLayout())
                     expect(feedbackView.collectionView(collectionView, numberOfItemsInSection: 1)).to(equal(0))
                     feedbackView.items = [ItemModel(), ItemModel()]
                     expect(feedbackView.collectionView(collectionView, numberOfItemsInSection: 1)).to(equal(2))
@@ -78,7 +79,7 @@ class FeedbackViewTests: QuickSpec {
                     let uiCell: ItemCellView = feedbackView.collectionView(feedbackView.collectionView, cellForItemAt:
                         IndexPath(row: 0, section: 0)) as! ItemCellView
                     // swiftlint:disable:previous force_cast
-                    
+
                     expect(uiCell.name.text).to(equal(itemOneName))
                 }
 
@@ -90,8 +91,9 @@ class FeedbackViewTests: QuickSpec {
                     itemOne.name = itemOneName
                     itemOne.predefinedFeedbacks = itemOnePredefinedFeedbacks
                     feedbackView.items = [itemOne]
-                    feedbackView.collectionView(feedbackView.collectionView, didSelectItemAt: IndexPath(row: 0, section: 0))
-                    
+                    feedbackView
+                        .collectionView(feedbackView.collectionView, didSelectItemAt: IndexPath(row: 0, section: 0))
+
                     expect(feedbackView.currentItem) == itemOne
                 }
 
@@ -102,15 +104,15 @@ class FeedbackViewTests: QuickSpec {
                     let expectedItemOne: ItemModel = ItemModel()
                     expectedItemOne.name = itemOneName
                     expectedItemOne.predefinedFeedbacks = itemOnePredefinedFeedbacks
-                    
+
                     let itemTwoName: String = "ItemTwo"
                     let itemTwoPredefinedFeedbacks: [String] = ["feedbackOne", "feedbackTwo"]
                     let expectedItemTwo: ItemModel = ItemModel()
                     expectedItemTwo.name = itemTwoName
                     expectedItemTwo.predefinedFeedbacks = itemTwoPredefinedFeedbacks
-                    
+
 //                    feedbackView.onLoadedAllItems(items: [expectedItemOne, expectedItemTwo])
-                    
+
                     let itemTwo = feedbackView.items[1]
                     expect(itemTwo) == expectedItemTwo
                     expect(feedbackView.currentItem) == expectedItemOne

@@ -8,12 +8,13 @@ import OHHTTPStubs
 
 class FeedbackServiceTests: QuickSpec {
 
+    // swiftlint:disable:next function_body_length
     override func spec() {
         describe("In feedback view model") {
             context("Get items") {
                 it("should return items") {
                     let feedbackService = FeedbackService()
-                    let stubbedItems = [["type": "value1"], ["type":"value2"]]
+                    let stubbedItems = [["type": "value1"], ["type": "value2"]]
 
                     stub(condition: isHost("54.255.184.116")) { _ in
                         return OHHTTPStubsResponse(jsonObject: stubbedItems, statusCode: 200,
@@ -22,7 +23,7 @@ class FeedbackServiceTests: QuickSpec {
 
                     let producer = feedbackService.getItems()
 
-                    producer.startWithValues({(data:[ItemModel]) -> Void in
+                    producer.startWithValues({(data: [ItemModel]) -> Void in
                         expect(data.count).to(equal(2))
                     })
                 }
@@ -31,7 +32,7 @@ class FeedbackServiceTests: QuickSpec {
             context("Get categories") {
                 it("should return categories") {
                     let feedbackService = FeedbackService()
-                    let stubbedCategories = [["name": "value1", "_id": "1"], ["type":"value2", "_id": "2"]]
+                    let stubbedCategories = [["name": "value1", "_id": "1"], ["type": "value2", "_id": "2"]]
 
                     stub(condition: isHost("54.255.184.116")) { _ in
                         return OHHTTPStubsResponse(jsonObject: stubbedCategories, statusCode: 200,
@@ -40,7 +41,7 @@ class FeedbackServiceTests: QuickSpec {
 
                     let producer = feedbackService.getCategories()
 
-                    producer.startWithValues({(data:[CategoryModel]) -> Void in
+                    producer.startWithValues({(data: [CategoryModel]) -> Void in
                         expect(data.count).to(equal(2))
                     })
                 }
@@ -59,7 +60,7 @@ class FeedbackServiceTests: QuickSpec {
                     }
 
                     let producer = feedbackService.addFeedback(item: item, feedback: "")
-                    
+
                     producer.startWithCompleted {
                         completed = true
                     }

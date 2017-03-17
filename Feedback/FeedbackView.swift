@@ -35,7 +35,7 @@ class FeedbackView: UIViewController, UICollectionViewDataSource, UICollectionVi
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        feedbackService.getItems().startWithValues({(data:[ItemModel]) -> Void in
+        feedbackService.getItems().startWithValues({(data: [ItemModel]) -> Void in
             self.items = data
             self.collectionView.reloadData()
             self.reloadFeedbackCaptureView(item: self.items[0])

@@ -35,7 +35,8 @@ class CategoriesViewControllerTests: QuickSpec {
             // swiftlint:disable:previous force_cast
             context("in view did load") {
                 it("should get all the categories") {
-                    categoriesView.feedbackService = MockFeedbackService()
+                    let mockFeedbackService = MockFeedbackService()
+                    categoriesView.feedbackService = mockFeedbackService
 
                     stub(mockFeedbackService) { service in
                         when(service.getCategories()).then({ () -> SignalProducer<[CategoryModel], NoError> in

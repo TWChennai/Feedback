@@ -19,7 +19,6 @@
 		4CCA64581E66E17D0011C8BC /* TestUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCA64571E66E17D0011C8BC /* TestUtils.swift */; };
 		4CCA645B1E66F92B0011C8BC /* MonkeyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCA645A1E66F92B0011C8BC /* MonkeyTests.swift */; };
 		4CCA645D1E6722EB0011C8BC /* BasePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCA645C1E6722EB0011C8BC /* BasePage.swift */; };
-		5B09B0BB1E6ECE8300A02852 /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B09B0BA1E6ECE8300A02852 /* add.png */; };
 		5B0A036E1E67416400B429EA /* CaptureFeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0A036D1E67416400B429EA /* CaptureFeedbackView.swift */; };
 		5B1609251E683A64003750B1 /* ItemModelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1609241E683A64003750B1 /* ItemModelExtension.swift */; };
 		5B1609271E683DD2003750B1 /* CaptureFeedbackViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1609261E683DD2003750B1 /* CaptureFeedbackViewTest.swift */; };
@@ -78,7 +77,6 @@
 		4CCA64571E66E17D0011C8BC /* TestUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestUtils.swift; sourceTree = "<group>"; };
 		4CCA645A1E66F92B0011C8BC /* MonkeyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonkeyTests.swift; sourceTree = "<group>"; };
 		4CCA645C1E6722EB0011C8BC /* BasePage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePage.swift; sourceTree = "<group>"; };
-		5B09B0BA1E6ECE8300A02852 /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
 		5B0A036D1E67416400B429EA /* CaptureFeedbackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureFeedbackView.swift; sourceTree = "<group>"; };
 		5B1609241E683A64003750B1 /* ItemModelExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemModelExtension.swift; sourceTree = "<group>"; };
 		5B1609261E683DD2003750B1 /* CaptureFeedbackViewTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureFeedbackViewTest.swift; sourceTree = "<group>"; };
@@ -204,7 +202,6 @@
 		16E84AA81E55D573002B4245 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				5B09B0BA1E6ECE8300A02852 /* add.png */,
 				16E84A761E55A959002B4245 /* Assets.xcassets */,
 			);
 			name = Resources;
@@ -410,7 +407,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				16E84A7A1E55A959002B4245 /* LaunchScreen.storyboard in Resources */,
-				5B09B0BB1E6ECE8300A02852 /* add.png in Resources */,
 				16E84A771E55A959002B4245 /* Assets.xcassets in Resources */,
 				16E84A751E55A959002B4245 /* Main.storyboard in Resources */,
 			);

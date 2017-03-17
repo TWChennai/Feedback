@@ -37,11 +37,11 @@ class FeedbackViewTests: QuickSpec {
             // swiftlint:disable:previous force_cast
             context("view did load") {
                 it("should get data from view model") {
-                    let viewmodel = MockFeedbackService()
-                    feedbackView.viewModel = viewmodel
+                    let feedbackService = MockFeedbackService()
+                    feedbackView.feedbackService = feedbackService
                     
-                    stub(viewmodel) { viewmodel in
-                        when(viewmodel.getItems(categoryId: anyString()))
+                    stub(feedbackService) { feedbackService in
+                        when(feedbackService.getItems(categoryId: anyString()))
                             .then({ (_) -> SignalProducer<[ItemModel], NoError> in
                             return SignalProducer<[ItemModel], NoError> {
                                 sink, _ in
@@ -53,7 +53,7 @@ class FeedbackViewTests: QuickSpec {
 
                     _ = feedbackView.view
 
-                    verify(viewmodel).getItems(categoryId: anyString())
+                    verify(feedbackService).getItems(categoryId: anyString())
                 }
             }
 

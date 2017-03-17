@@ -32,12 +32,6 @@
                                             <constraint firstAttribute="height" constant="174" id="NGt-fa-ZTL"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iAj-7U-B5h">
-                                        <rect key="frame" x="150.5" y="174" width="42" height="0.0"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="XZn-hN-crX" userLabel="PredefinedFeedback">
                                         <rect key="frame" x="37" y="174" width="269" height="169"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -156,7 +150,6 @@
                     <navigationItem key="navigationItem" id="rY2-eS-G8I"/>
                     <connections>
                         <outlet property="collectionView" destination="auD-tb-nud" id="sfa-VA-Zr4"/>
-                        <outlet property="countLabel" destination="iAj-7U-B5h" id="Xp2-Td-LQv"/>
                         <outlet property="itemImage" destination="D4C-ZN-sOk" id="KCz-s9-raR"/>
                         <outlet property="leadingConstraint" destination="NzH-4b-9lk" id="V50-36-7Qd"/>
                         <outlet property="predefinedFeedback" destination="XZn-hN-crX" id="X8b-Tw-wax"/>

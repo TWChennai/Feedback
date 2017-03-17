@@ -47,7 +47,7 @@ class CaptureFeedbackViewTests: QuickSpec {
                 it("should have count same as number of predefined feedback") {
                     let row = 0
                     let mockFeedbackService = MockFeedbackService()
-                    feedbackView.viewModel = mockFeedbackService
+                    feedbackView.feedbackService = mockFeedbackService
                     let item = ItemModel()
                     item.predefinedFeedbacks = ["one", "two", "three"]
                     feedbackView.currentItem = item

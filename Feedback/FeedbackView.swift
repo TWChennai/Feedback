@@ -5,10 +5,9 @@ import ReactiveSwift
 import enum Result.NoError
 
 class FeedbackView: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
-    var viewModel: FeedbackService =  FeedbackService()
+    var feedbackService: FeedbackService =  FeedbackService()
 
     var items: [ItemModel] = []
-    var counts: SignalProducer<[ItemModel], NoError> = SignalProducer.empty
     var currentItem: ItemModel = ItemModel()
     // swiftlint:disable:next variable_name
     let S3_URL: String = ProcessInfo.processInfo.environment["S3_URL"]!
@@ -16,7 +15,6 @@ class FeedbackView: UIViewController, UICollectionViewDataSource, UICollectionVi
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var itemImage: UIImageView!
-    @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var predefinedFeedback: UITableView!
     @IBOutlet weak var leadingConstraint: NSLayoutConstraint!
 
@@ -37,7 +35,7 @@ class FeedbackView: UIViewController, UICollectionViewDataSource, UICollectionVi
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.getItems().startWithValues({(data:[ItemModel]) -> Void in
+        feedbackService.getItems().startWithValues({(data:[ItemModel]) -> Void in
             self.items = data
             self.collectionView.reloadData()
             self.reloadFeedbackCaptureView(item: self.items[0])

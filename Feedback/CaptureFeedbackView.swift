@@ -15,7 +15,7 @@ extension FeedbackView: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
         let feedback = currentItem.predefinedFeedbacks[indexPath.row]
-        viewModel.addFeedback(item: currentItem, feedback: feedback).startWithCompleted {
+        feedbackService.addFeedback(item: currentItem, feedback: feedback).startWithCompleted {
             self.view.makeToast("Feedback submitted", duration: TimeInterval.abs(1), position: ToastPosition.bottom)
         }
     }

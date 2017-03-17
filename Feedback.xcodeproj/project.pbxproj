@@ -32,6 +32,7 @@
 		5B7662AD1E7049DF003E1F17 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7662AC1E7049DF003E1F17 /* Category.swift */; };
 		5B7662AF1E70591C003E1F17 /* CategoryModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7662AE1E70591C003E1F17 /* CategoryModelTest.swift */; };
 		5BB5859D1E5C299000C0404B /* ItemCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB5859C1E5C299000C0404B /* ItemCellView.swift */; };
+		5BF50E6B1E7BDEF500382DE9 /* GeneratedMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF50E6A1E7BDEF500382DE9 /* GeneratedMocks.swift */; };
 		5BF624CF1E6E9DB70062D836 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF624CE1E6E9DB70062D836 /* CategoriesViewController.swift */; };
 		5BF624D11E6EB0170062D836 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF624D01E6EB0170062D836 /* CategoryViewController.swift */; };
 		7BA5FA351E5DA621002E52E1 /* FeedbackServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA5FA341E5DA621002E52E1 /* FeedbackServiceTest.swift */; };
@@ -92,6 +93,7 @@
 		5B7662AC1E7049DF003E1F17 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		5B7662AE1E70591C003E1F17 /* CategoryModelTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryModelTest.swift; sourceTree = "<group>"; };
 		5BB5859C1E5C299000C0404B /* ItemCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCellView.swift; sourceTree = "<group>"; };
+		5BF50E6A1E7BDEF500382DE9 /* GeneratedMocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratedMocks.swift; sourceTree = SOURCE_ROOT; };
 		5BF624CE1E6E9DB70062D836 /* CategoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		5BF624D01E6EB0170062D836 /* CategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		6F9ED2F1A24CC826157FD5FF /* Pods-FeedbackUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FeedbackUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FeedbackUITests/Pods-FeedbackUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 		16E84A831E55A959002B4245 /* FeedbackTests */ = {
 			isa = PBXGroup;
 			children = (
+				5BF50E6A1E7BDEF500382DE9 /* GeneratedMocks.swift */,
 				16E84A861E55A959002B4245 /* Info.plist */,
 				7BF550AA1E571AD300E8AB63 /* FeedbackViewTests.swift */,
 				7BC17AB51E5D551100804961 /* ItemModelTest.swift */,
@@ -585,7 +588,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "OUTPUT_FILE=\"$PROJECT_DIR/GeneratedMocks.swift\"\necho \"Generated Mocks File = $OUTPUT_FILE\"\nINPUT_DIR=\"$PROJECT_DIR\"\necho \"Mocks Input Directory = $INPUT_DIR\"\n${PODS_ROOT}/Cuckoo/run generate --testable \"$PROJECT_NAME\" --output \"${OUTPUT_FILE}\" \"$INPUT_DIR/Feedback/FeedbackService.swift\";";
+			shellScript = "OUTPUT_FILE=\"$PROJECT_DIR/GeneratedMocks.swift\"\necho \"Generated Mocks File = $OUTPUT_FILE\"\nINPUT_DIR=\"$PROJECT_DIR\"\necho \"Mocks Input Directory = $INPUT_DIR\"\necho ${PODS_ROOT}/Cuckoo/run generate --testable \"$PROJECT_NAME\" --output \"${OUTPUT_FILE}\" \"$INPUT_DIR/Feedback/FeedbackService.swift\";";
 		};
 		F6122AA11E7288E300D59879 /* Swift Lint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -599,7 +602,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "count=0\nfor file_path in $(git ls-files | grep \".swift$\"); do\n    export SCRIPT_INPUT_FILE_$count=$file_path\n    count=$((count + 1))\ndone\nexport SCRIPT_INPUT_FILE_COUNT=$count\n${PODS_ROOT}/SwiftLint/swiftlint lint --use-script-input-files";
+			shellScript = "count=0\nfor file_path in $(git ls-files | grep \".swift$\" | grep -v \"GeneratedMocks.swift\"); do\n    export SCRIPT_INPUT_FILE_$count=$file_path\n    count=$((count + 1))\ndone\nexport SCRIPT_INPUT_FILE_COUNT=$count\n${PODS_ROOT}/SwiftLint/swiftlint lint --use-script-input-files";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -628,6 +631,7 @@
 				5B1609251E683A64003750B1 /* ItemModelExtension.swift in Sources */,
 				7BC17AB61E5D551100804961 /* ItemModelTest.swift in Sources */,
 				5B1609271E683DD2003750B1 /* CaptureFeedbackViewTest.swift in Sources */,
+				5BF50E6B1E7BDEF500382DE9 /* GeneratedMocks.swift in Sources */,
 				7BF550AB1E571AD300E8AB63 /* FeedbackViewTests.swift in Sources */,
 				5B7662AB1E6FD53A003E1F17 /* CategoriesViewControllerTests.swift in Sources */,
 				7BA5FA351E5DA621002E52E1 /* FeedbackServiceTest.swift in Sources */,

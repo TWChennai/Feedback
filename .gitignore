@@ -60,5 +60,3 @@ node_modules
 ##swift lint
 swiftlint.json
 
-##Cuckoo
-GeneratedMocks.swift

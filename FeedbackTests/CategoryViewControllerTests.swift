@@ -54,7 +54,7 @@ class CategoryViewControllerTests: QuickSpec {
                     item.name = "itemName"
                     categoryView.itemList = [item, item]
                     let cell = categoryView.tableView(categoryView.items, cellForRowAt: IndexPath(row: 0, section: 0))
-                    expect(cell.accessoryType) == UITableViewCellAccessoryType.none
+                    expect(cell.accessoryType) == UITableViewCellAccessoryType.checkmark
                     expect(cell.textLabel?.text) == "itemName"
                 }
             }

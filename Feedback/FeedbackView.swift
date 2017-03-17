@@ -3,19 +3,20 @@ import SDWebImage
 import ReactiveCocoa
 import ReactiveSwift
 import enum Result.NoError
-import CoreData
 
 class FeedbackView: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
-    var feedbackService: FeedbackService =  FeedbackService()
+    var viewModel: FeedbackService =  FeedbackService()
 
-    var items: [NSManagedObject] = []
-    var currentItem: NSManagedObject?
+    var items: [ItemModel] = []
+    var counts: SignalProducer<[ItemModel], NoError> = SignalProducer.empty
+    var currentItem: ItemModel = ItemModel()
     // swiftlint:disable:next variable_name
     let S3_URL: String = ProcessInfo.processInfo.environment["S3_URL"]!
     let sideMenuHideOrigin: CGFloat = -185
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var itemImage: UIImageView!
+    @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var predefinedFeedback: UITableView!
     @IBOutlet weak var leadingConstraint: NSLayoutConstraint!
 
@@ -36,31 +37,13 @@ class FeedbackView: UIViewController, UICollectionViewDataSource, UICollectionVi
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.getItems().startWithValues({(data:[ItemModel]) -> Void in
+            self.items = data
+            self.collectionView.reloadData()
+            self.reloadFeedbackCaptureView(item: self.items[0])
+        })
+
         predefinedFeedback.tableFooterView = UIView()
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
-
-        let managedContext = appDelegate.persistentContainer.viewContext
-
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "ActivatedItems")
-        do {
-            items = try managedContext.fetch(fetchRequest)
-            if items.count > 0 {
-                currentItem = items[0]
-            } else {
-                currentItem = nil
-            }
-        } catch let error as NSError {
-            print("Could not fetch. \(error), \(error.userInfo)")
-        }
-        self.collectionView.reloadData()
-        self.reloadFeedbackCaptureView(item: currentItem)
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -72,7 +55,7 @@ class FeedbackView: UIViewController, UICollectionViewDataSource, UICollectionVi
         let cell: ItemCellView = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell",
                                                                     for: indexPath) as! ItemCellView
         // swiftlint:disable:previous force_cast
-        let itemName: String = (items[indexPath.row].value(forKey: "name") as? String)!
+        let itemName: String = items[indexPath.row].name!
         cell.image.sd_setImage(with: URL(string: "\(S3_URL)\(itemName.lowercased()).jpg"))
         cell.name.text = itemName
         return cell

@@ -3,7 +3,6 @@ import Quick
 import Nimble
 import Cuckoo
 import ReactiveSwift
-import CoreData
 import enum Result.NoError
 
 @testable import Feedback
@@ -15,26 +14,29 @@ class CaptureFeedbackViewTests: QuickSpec {
         describe("In feedback view") {
             let feedbackView = UIStoryboard(name: "Main", bundle: nil)
                 .instantiateViewController(withIdentifier: "feedbackView") as! FeedbackView
-//             swiftlint:disable:previous force_cast
+            // swiftlint:disable:previous force_cast
 
             context("table view") {
-                pending("should have count same as number of predefined feedback") {
+
+                it("should have count same as number of predefined feedback") {
                     _ = feedbackView.view
                     let item = ItemModel()
                     let predefinedFeedbacks = ["one", "two", "three"]
                     item.predefinedFeedbacks = predefinedFeedbacks
 
-                    feedbackView.currentItem = NSManagedObject()
+                    feedbackView.currentItem = ItemModel()
                     expect(feedbackView.tableView(feedbackView.predefinedFeedback, numberOfRowsInSection: 1)) == 0
 
-                    expect(feedbackView.tableView(feedbackView.predefinedFeedback, numberOfRowsInSection: 1)) == predefinedFeedbacks.count
+                    feedbackView.currentItem = item
+                    expect(feedbackView.tableView(feedbackView.predefinedFeedback, numberOfRowsInSection: 1))
+                        == predefinedFeedbacks.count
                 }
 
-                pending("should load the content of the predefined feedback") {
+                it("should load the content of the predefined feedback") {
                     _ = feedbackView.view
                     let item = ItemModel()
                     item.predefinedFeedbacks = ["one", "two", "three"]
-                    feedbackView.currentItem = NSManagedObject()
+                    feedbackView.currentItem = item
 
                     let cell: UITableViewCell = feedbackView.tableView(feedbackView.predefinedFeedback,
                                                                        cellForRowAt: IndexPath(row: 1, section: 0))
@@ -42,17 +44,17 @@ class CaptureFeedbackViewTests: QuickSpec {
                     expect(cell.textLabel?.text) == "two"
                 }
 
-                pending("should have count same as number of predefined feedback") {
+                it("should have count same as number of predefined feedback") {
                     let row = 0
                     let mockFeedbackService = MockFeedbackService()
-                    feedbackView.feedbackService = mockFeedbackService
+                    feedbackView.viewModel = mockFeedbackService
                     let item = ItemModel()
                     item.predefinedFeedbacks = ["one", "two", "three"]
-                    feedbackView.currentItem = NSManagedObject()
+                    feedbackView.currentItem = item
                     _ = feedbackView.view
 
                     stub(mockFeedbackService) { viewmodel in
-                        when(viewmodel.addFeedback(itemName: any(), feedback: any()))
+                        when(viewmodel.addFeedback(item: any(), feedback: any()))
                             .then({ (_, _) -> SignalProducer<(), NoError> in
                             return SignalProducer<(), NoError> { sink, _ in
                                  sink.sendCompleted()
@@ -63,7 +65,7 @@ class CaptureFeedbackViewTests: QuickSpec {
                     feedbackView.tableView(feedbackView.predefinedFeedback,
                                            didHighlightRowAt: IndexPath(row: row, section: 0))
 
-                    verify(mockFeedbackService).addFeedback(itemName: any(), feedback: any())
+                    verify(mockFeedbackService).addFeedback(item: any(), feedback: any())
                 }
             }
         }

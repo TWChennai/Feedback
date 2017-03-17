@@ -50,14 +50,15 @@ class FeedbackServiceTests: QuickSpec {
                 it("should call the callback on success") {
                     let feedbackService = FeedbackService()
                     var completed = false
-                    let name: String = "test"
+                    let item: ItemModel = ItemModel()
+                    item.name = "test"
 
                     stub(condition: isHost("54.255.184.116")) { _ in
                         return OHHTTPStubsResponse(jsonObject: [:], statusCode: 200,
                                                    headers: [ "Content-Type": "application/json" ])
                     }
 
-                    let producer = feedbackService.addFeedback(itemName: name, feedback: "")
+                    let producer = feedbackService.addFeedback(item: item, feedback: "")
                     
                     producer.startWithCompleted {
                         completed = true
@@ -69,13 +70,15 @@ class FeedbackServiceTests: QuickSpec {
                 it("should not call the callback if the submission fails") {
                     let feedbackService = FeedbackService()
                     var completed = false
+                    let item: ItemModel = ItemModel()
+                    item.name = "test"
 
                     stub(condition: isHost("54.255.184.116")) { _ in
                         return OHHTTPStubsResponse(jsonObject: [:], statusCode: 400,
                                                    headers: [ "Content-Type": "application/json" ])
                     }
 
-                    let producer = feedbackService.addFeedback(itemName: "test", feedback: "")
+                    let producer = feedbackService.addFeedback(item: item, feedback: "")
 
                     producer.startWithCompleted {
                         completed = true

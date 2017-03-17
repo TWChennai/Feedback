@@ -3,7 +3,6 @@ import Quick
 import Nimble
 import Cuckoo
 import ReactiveSwift
-import CoreData
 import enum Result.NoError
 
 @testable import Feedback
@@ -37,11 +36,11 @@ class FeedbackViewTests: QuickSpec {
                 .instantiateViewController(withIdentifier: "feedbackView") as! FeedbackView
             // swiftlint:disable:previous force_cast
             context("view did load") {
-                pending("should get data from view model") {
-                    let feedbackService = MockFeedbackService()
-                    feedbackView.feedbackService = feedbackService
+                it("should get data from view model") {
+                    let viewmodel = MockFeedbackService()
+                    feedbackView.viewModel = viewmodel
                     
-                    stub(feedbackService) { viewmodel in
+                    stub(viewmodel) { viewmodel in
                         when(viewmodel.getItems(categoryId: anyString()))
                             .then({ (_) -> SignalProducer<[ItemModel], NoError> in
                             return SignalProducer<[ItemModel], NoError> {
@@ -54,7 +53,7 @@ class FeedbackViewTests: QuickSpec {
 
                     _ = feedbackView.view
 
-                    verify(feedbackService).getItems(categoryId: anyString())
+                    verify(viewmodel).getItems(categoryId: anyString())
                 }
             }
 
@@ -65,34 +64,35 @@ class FeedbackViewTests: QuickSpec {
                     feedbackView.items = []
                     let collectionView = UICollectionView(frame: CGRect(), collectionViewLayout: UICollectionViewLayout())
                     expect(feedbackView.collectionView(collectionView, numberOfItemsInSection: 1)).to(equal(0))
-                    feedbackView.items = [NSManagedObject(), NSManagedObject()]
+                    feedbackView.items = [ItemModel(), ItemModel()]
                     expect(feedbackView.collectionView(collectionView, numberOfItemsInSection: 1)).to(equal(2))
                 }
 
-                pending("should create new cell based on index path") {
+                it("should create new cell based on index path") {
                     feedbackView.loadView()
                     let itemOneName: String = "ItemOne"
                     let itemOne: ItemModel = ItemModel()
                     itemOne.name = itemOneName
-                    feedbackView.items = [NSManagedObject()]
+                    feedbackView.items = [itemOne]
 
                     let uiCell: ItemCellView = feedbackView.collectionView(feedbackView.collectionView, cellForItemAt:
                         IndexPath(row: 0, section: 0)) as! ItemCellView
                     // swiftlint:disable:previous force_cast
+                    
                     expect(uiCell.name.text).to(equal(itemOneName))
                 }
 
-                pending("should show the menu in feedback capture area") {
+                it("should show the menu in feedback capture area") {
                     feedbackView.loadView()
                     let itemOneName: String = "ItemOne"
                     let itemOnePredefinedFeedbacks: [String] = ["feedbackOne", "feedbackTwo"]
                     let itemOne: ItemModel = ItemModel()
                     itemOne.name = itemOneName
                     itemOne.predefinedFeedbacks = itemOnePredefinedFeedbacks
-                    feedbackView.items = [NSManagedObject()]
+                    feedbackView.items = [itemOne]
                     feedbackView.collectionView(feedbackView.collectionView, didSelectItemAt: IndexPath(row: 0, section: 0))
                     
-                    expect(feedbackView.currentItem) == NSManagedObject()
+                    expect(feedbackView.currentItem) == itemOne
                 }
 
                 pending("onLoadedAllItems should set the feedback view's items") {
@@ -112,13 +112,13 @@ class FeedbackViewTests: QuickSpec {
 //                    feedbackView.onLoadedAllItems(items: [expectedItemOne, expectedItemTwo])
                     
                     let itemTwo = feedbackView.items[1]
-                    expect(itemTwo) == NSManagedObject()
-                    expect(feedbackView.currentItem) == NSManagedObject()
+                    expect(itemTwo) == expectedItemTwo
+                    expect(feedbackView.currentItem) == expectedItemOne
                 }
             }
 
             context("side menu") {
-                pending("should show/hide side menu") {
+                it("should show/hide side menu") {
                     expect(feedbackView.leadingConstraint.constant) == feedbackView.sideMenuHideOrigin
                     feedbackView.showSideMenu(UISwipeGestureRecognizer())
                     expect(feedbackView.leadingConstraint.constant) == 0
@@ -127,7 +127,7 @@ class FeedbackViewTests: QuickSpec {
                     expect(feedbackView.leadingConstraint.constant) == feedbackView.sideMenuHideOrigin
                 }
 
-                pending("navigate to categories page") {
+                it("navigate to categories page") {
                     feedbackView.showSideMenu(UISwipeGestureRecognizer())
 
                     feedbackView.showFoodCategories(feedbackView)

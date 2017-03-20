@@ -49,3 +49,4 @@ build
 /*.gcno
 
 .DS_Store
+xcov_output/

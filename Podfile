@@ -14,20 +14,24 @@ target 'Feedback' do
     pod 'Toast-Swift', '~> 2.0.0'
     pod 'ReactiveCocoa', '~> 5.0.0'
     pod 'SwiftLint'
-
+  
   target 'FeedbackTests' do
     inherit! :search_paths
     # Pods for testing
     pod 'Quick'
-    pod 'Nimble'
+    pod 'Nimble', '~> 5.0'
     pod 'Cuckoo'
     pod 'OHHTTPStubs'
     pod 'OHHTTPStubs/Swift'
+    pod 'KIF'
+    pod 'KIF/IdentifierTests'
+    pod 'EarlGrey'
+    pod 'PactConsumerSwift', :git => 'https://github.com/DiUS/pact-consumer-swift', :branch => 'master'
   end
 
   target 'FeedbackUITests' do
     inherit! :search_paths
     pod 'SwiftMonkey'
   end
-
+  
 end

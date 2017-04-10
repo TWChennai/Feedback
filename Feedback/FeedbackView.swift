@@ -56,6 +56,8 @@ class FeedbackView: UIViewController, UICollectionViewDataSource, UICollectionVi
         let itemName: String = items[indexPath.row].name!
         cell.image.sd_setImage(with: URL(string: "\(S3_URL)\(itemName.lowercased()).jpg"))
         cell.name.text = itemName
+        cell.name.accessibilityIdentifier = itemName.lowercased()
+        cell.name.accessibilityLabel = itemName.lowercased()
         return cell
     }
 

@@ -3,9 +3,17 @@ PODS:
   - AlamofireObjectMapper (4.0.1):
     - Alamofire (~> 4.1)
     - ObjectMapper (~> 2.0)
+  - BrightFutures (5.1.0):
+    - Result (~> 3.0)
   - Cuckoo (0.8.3)
+  - EarlGrey (1.8.0)
+  - KIF (3.5.1):
+    - KIF/Core (= 3.5.1)
+  - KIF/Core (3.5.1)
+  - KIF/IdentifierTests (3.5.1):
+    - KIF/Core
   - MGSwipeTableCell (1.5.6)
-  - Nimble (6.0.1)
+  - Nimble (5.1.1)
   - ObjectMapper (2.2.2)
   - OHHTTPStubs (5.2.3):
     - OHHTTPStubs/Default (= 5.2.3)
@@ -22,6 +30,10 @@ PODS:
   - OHHTTPStubs/OHPathHelpers (5.2.3)
   - OHHTTPStubs/Swift (5.2.3):
     - OHHTTPStubs/Core
+  - PactConsumerSwift (0.4.1):
+    - Alamofire (~> 4.0)
+    - BrightFutures (~> 5.0)
+    - Nimble (~> 5.0)
   - Quick (1.0.0)
   - ReactiveCocoa (5.0.0):
     - ReactiveSwift (~> 1.0.0)
@@ -40,10 +52,14 @@ DEPENDENCIES:
   - Alamofire (~> 4.3)
   - AlamofireObjectMapper (~> 4.0)
   - Cuckoo
+  - EarlGrey
+  - KIF
+  - KIF/IdentifierTests
   - MGSwipeTableCell
-  - Nimble
+  - Nimble (~> 5.0)
   - OHHTTPStubs
   - OHHTTPStubs/Swift
+  - PactConsumerSwift (from `https://github.com/DiUS/pact-consumer-swift`, branch `master`)
   - Quick
   - ReactiveCocoa (~> 5.0.0)
   - SDWebImage (~> 4.0.0)
@@ -52,14 +68,28 @@ DEPENDENCIES:
   - SwiftyJSON
   - Toast-Swift (~> 2.0.0)
 
+EXTERNAL SOURCES:
+  PactConsumerSwift:
+    :branch: master
+    :git: https://github.com/DiUS/pact-consumer-swift
+
+CHECKOUT OPTIONS:
+  PactConsumerSwift:
+    :commit: 34c5dac71bb8f1d0acf816ec6851b82e168dbd14
+    :git: https://github.com/DiUS/pact-consumer-swift
+
 SPEC CHECKSUMS:
   Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
   AlamofireObjectMapper: 842d2eed43a4d0593ff0110d54ac86a170c4519c
+  BrightFutures: 62aafb1a63520eda91c9286bf4be33e58e043938
   Cuckoo: 2daf5d23383c0a24cd60b73287a5813af4793add
+  EarlGrey: fa5b7268f7eee71bccc987cfdf5e6d9223c38213
+  KIF: 082eb65279e51c3092923802849eb796a04982ab
   MGSwipeTableCell: 616700eb0ffd1c611ba909066cb7fd739790a0a7
-  Nimble: 1527fd1bd2b4cf0636251a36bc8ab37e81da8347
+  Nimble: 415e3aa3267e7bc2c96b05fa814ddea7bb686a29
   ObjectMapper: 9e385c2295bcc4e16eabbcfc85db801442bba545
   OHHTTPStubs: e238cd5b66d8efa51c861db45895de8fe079f4a7
+  PactConsumerSwift: dd1630521b58b8b6c91a1c308e6106a79fca792f
   Quick: 8024e4a47e6cc03a9d5245ef0948264fc6d27cff
   ReactiveCocoa: 60ef0da915b4f70c34ebecc3f4fb8f96af0e53d6
   ReactiveSwift: f391724ee318a2cfd3e37dfb041cd49ecf4e7869
@@ -70,6 +100,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   Toast-Swift: 5b2f8f720f7e78e48511f693df1f9c9a6e38a25a
 
-PODFILE CHECKSUM: c8157ab40fcce7abcff8983590ce78f66f86382a
+PODFILE CHECKSUM: de39d8141504e823a64a9e47c1fbf8bf3d2298b2
 
 COCOAPODS: 1.2.0

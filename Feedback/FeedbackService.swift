@@ -7,7 +7,7 @@ import ReactiveSwift
 
 class FeedbackService {
 
-    let url = ProcessInfo.processInfo.environment["FEEDBACK_BACKEND_URL"]
+    var url = ProcessInfo.processInfo.environment["FEEDBACK_BACKEND_URL"]
 
     func getItems(categoryId: String = "57b048b0-2002-41f3-908f-103faba36e96") -> SignalProducer<[ItemModel], NoError> {
         return SignalProducer { sink, _ in
